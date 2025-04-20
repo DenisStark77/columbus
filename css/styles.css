@@ -1,0 +1,67 @@
+/* Custom styles for Columbus Heights Estate website */
+
+/* General styles */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+/* Map styles */
+.leaflet-container {
+    border-radius: 0.25rem;
+}
+
+/* Lot information styles */
+.lot-details {
+    margin-bottom: 2rem;
+}
+
+/* Carousel styles in modal */
+#lotImagesCarousel .carousel-item {
+    height: 50vh;
+    background-color: #343a40;
+}
+
+#lotImagesCarousel .carousel-item img {
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+    #map {
+        height: 400px !important;
+    }
+
+    #lotImagesCarousel .carousel-item {
+        height: 40vh;
+    }
+}
+
+/* Card hover effects for challenges section */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Header styles */
+header {
+    background-color: rgba(33, 37, 41, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer styling */
+footer {
+    margin-top: auto;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
