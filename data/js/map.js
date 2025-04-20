@@ -7,11 +7,18 @@ let geojsonData = null;
 // Initialize the map
 function initMap() {
     // Create map centered at the specified coordinates with zoom level 16
-    map = L.map('map').setView([9.581195, -84.537217], 16);
+    map = L.map('map', {
+        center: [9.581195, -84.537217],
+        zoom: 16,
+        minZoom: 14,
+        maxZoom: 18
+    });
     
     // Add OpenStreetMap tile layer
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        tileSize: 512,
+        zoomOffset: -1
     }).addTo(map);
     
     // Load GeoJSON data
