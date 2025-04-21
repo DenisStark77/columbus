@@ -9,7 +9,7 @@ function initMap() {
     // Create map centered at the specified coordinates with zoom level 16
     map = L.map('map', {
         center: [9.581195, -84.537217],
-        zoom: 17,
+        zoom: 15,
         minZoom: 14,
         maxZoom: 18
     });
