@@ -70,7 +70,13 @@ function addGeoJSONToMap(data) {
                 className: 'lot-label',
                 html: lotNumber,
                 iconSize: [16, 16]
-            })
+            }),
+            interactive: true
+        }).on('click', () => {
+            const lotLayer = lotLayers[feature.properties.name];
+            if (lotLayer) {
+                selectLot({ target: lotLayer });
+            }
         }).addTo(labelGroup);
     });
 
