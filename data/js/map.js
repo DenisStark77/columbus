@@ -9,18 +9,18 @@ function initMap() {
     // Create map centered at the specified coordinates with zoom level 16
     map = L.map('map', {
         center: [9.581195, -84.537217],
-        zoom: 16,
+        zoom: 15,
         minZoom: 14,
         maxZoom: 18
     });
-    
+
     // Add OpenStreetMap tile layer
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
         tileSize: 512,
         zoomOffset: -1
     }).addTo(map);
-    
+
     // Load GeoJSON data
     loadGeoJSON();
 }
@@ -35,7 +35,7 @@ function loadGeoJSON() {
         })
         .catch(error => {
             console.error('Error loading GeoJSON:', error);
-            document.getElementById('lot-info').innerHTML = 
+            document.getElementById('lot-info').innerHTML =
                 `<div class="alert alert-danger">
                     Error loading property data. Please try refreshing the page.
                 </div>`;
@@ -73,7 +73,7 @@ function addGeoJSONToMap(data) {
             })
         }).addTo(labelGroup);
     });
-    
+
     // Show/hide labels based on zoom level
     map.on('zoomend', () => {
         const zoom = map.getZoom();
@@ -83,10 +83,10 @@ function addGeoJSONToMap(data) {
             labelGroup.addTo(map);
         }
     });
-    
+
     // Fit map bounds to show all lots
     map.fitBounds(geoJsonLayer.getBounds());
-    
+
     // Select lot 47 initially
     const lot47Layer = lotLayers['Lot 47'];
     if (lot47Layer) {
@@ -98,10 +98,10 @@ function addGeoJSONToMap(data) {
 function onEachFeature(feature, layer) {
     // Store reference to layer
     lotLayers[feature.properties.name] = layer;
-    
+
     // Add popups
     layer.bindPopup(`<b>${feature.properties.name}</b>`);
-    
+
     // Add event listeners
     layer.on({
         mouseover: highlightFeature,
@@ -113,17 +113,17 @@ function onEachFeature(feature, layer) {
 // Function to highlight feature on mouseover
 function highlightFeature(e) {
     const layer = e.target;
-    
+
     // Skip if this is the currently selected lot
     if (currentSelectedLot === layer) return;
-    
+
     layer.setStyle({
         weight: 3,
         color: '#66b3ff',
         dashArray: '',
         fillOpacity: 0.7
     });
-    
+
     if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
         layer.bringToFront();
     }
@@ -132,10 +132,10 @@ function highlightFeature(e) {
 // Function to reset highlight on mouseout
 function resetHighlight(e) {
     const layer = e.target;
-    
+
     // Skip if this is the currently selected lot
     if (currentSelectedLot === layer) return;
-    
+
     // Reset to default style
     const feature = layer.feature;
     layer.setStyle({
@@ -152,12 +152,12 @@ function resetHighlight(e) {
 function selectLot(e) {
     const layer = e.target;
     const feature = layer.feature;
-    
+
     // If clicking the same lot, do nothing
     if (currentSelectedLot === layer) {
         return;
     }
-    
+
     // Reset style of previously selected lot and remove selection
     if (currentSelectedLot) {
         currentSelectedLot.setStyle({
@@ -170,7 +170,7 @@ function selectLot(e) {
         });
         currentSelectedLot.closePopup();
     }
-    
+
     // Set style for newly selected lot
     layer.setStyle({
         weight: 4,
@@ -178,17 +178,17 @@ function selectLot(e) {
         dashArray: '',
         fillOpacity: 0.7
     });
-    
+
     if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
         layer.bringToFront();
     }
-    
+
     // Update current selected lot
     currentSelectedLot = layer;
-    
+
     // Update lot information panel
     updateLotInfo(feature);
-    
+
     // Open popup
     layer.openPopup();
 }
@@ -200,13 +200,13 @@ function updateLotInfo(feature) {
     const status = properties.status || 'Not for sale';
     const contact = properties.contact || 'Contact information not available';
     const price = properties['price ind.'] ? `$${properties['price ind.'].toLocaleString()}` : 'Price not available';
-    
+
     // Generate sample images for the lot (in real-world app, these would be real images)
     const lotImages = generateSampleImageLinks(lotName);
-    
+
     // Update the lot information panel
     document.getElementById('lot-title').textContent = lotName;
-    
+
     // Create HTML for lot information
     let lotInfoHTML = `
         <div class="photo-gallery mb-4">
@@ -255,7 +255,7 @@ function updateLotInfo(feature) {
             <p>The lot offers privacy while still being close to amenities. Access to community water and a well-maintained access road is included.</p>
         </div>
     `;
-    
+
     document.getElementById('lot-info').innerHTML = lotInfoHTML;
 }
 
@@ -281,7 +281,7 @@ function openImageGallery(lotName) {
     const images = generateSampleImageLinks(lotName);
     const carouselInner = document.getElementById('carouselInner');
     carouselInner.innerHTML = '';
-    
+
     // Add images to carousel
     images.forEach((image, index) => {
         const div = document.createElement('div');
@@ -294,10 +294,10 @@ function openImageGallery(lotName) {
         `;
         carouselInner.appendChild(div);
     });
-    
+
     // Update modal title
     document.getElementById('lotImagesModalLabel').textContent = `${lotName} - Images`;
-    
+
     // Open modal
     const modal = new bootstrap.Modal(document.getElementById('lotImagesModal'));
     modal.show();
