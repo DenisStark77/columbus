@@ -84,14 +84,14 @@ function addGeoJSONToMap(data) {
         }
     });
 
-    // Fit map bounds to show all lots
-    map.fitBounds(geoJsonLayer.getBounds());
-
     // Select lot 47 initially
     const lot47Layer = lotLayers['Lot 47'];
     if (lot47Layer) {
         selectLot({ target: lot47Layer });
     }
+
+    // Set zoom level without fitting bounds
+    map.setView([9.581195, -84.537217], 17);
 }
 
 // Function that defines what happens when interacting with each feature
