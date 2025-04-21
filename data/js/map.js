@@ -123,9 +123,15 @@ function selectLot(e) {
     const layer = e.target;
     const feature = layer.feature;
     
+    // If clicking the same lot, do nothing
+    if (currentSelectedLot === layer) {
+        return;
+    }
+    
     // Reset style of previously selected lot
     if (currentSelectedLot) {
         resetHighlight({ target: currentSelectedLot });
+        currentSelectedLot.closePopup();
     }
     
     // Set style for selected lot
@@ -204,12 +210,7 @@ function updateLotInfo(feature) {
             <h4>Contact Information</h4>
             <p><i class="fas fa-user me-2"></i>${contact}</p>
             
-            <div class="mt-4">
-                <button class="btn btn-primary" onclick="openImageGallery('${lotName}')">
-                    <i class="fas fa-images me-2"></i>View Property Images
-                </button>
             </div>
-        </div>
         
         <div class="property-description">
             <h4>Description</h4>
