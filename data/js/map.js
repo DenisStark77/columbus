@@ -61,6 +61,7 @@ function addGeoJSONToMap(data) {
     }).addTo(map);
 
     // Add lot number labels
+    const labelGroup = L.layerGroup().addTo(map);
     data.features.forEach(feature => {
         const center = L.geoJSON(feature).getBounds().getCenter();
         const lotNumber = feature.properties.name.replace('Lot ', '');
@@ -68,9 +69,19 @@ function addGeoJSONToMap(data) {
             icon: L.divIcon({
                 className: 'lot-label',
                 html: lotNumber,
-                iconSize: [20, 20]
+                iconSize: [16, 16]
             })
-        }).addTo(map);
+        }).addTo(labelGroup);
+    });
+    
+    // Show/hide labels based on zoom level
+    map.on('zoomend', () => {
+        const zoom = map.getZoom();
+        if (zoom < 15) {
+            labelGroup.remove();
+        } else {
+            labelGroup.addTo(map);
+        }
     });
     
     // Fit map bounds to show all lots

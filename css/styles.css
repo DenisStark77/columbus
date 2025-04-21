@@ -21,7 +21,7 @@ main {
     border: none;
     color: #000;
     font-weight: bold;
-    font-size: 12px;
+    font-size: 9px;
     text-align: center;
     text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
 }
