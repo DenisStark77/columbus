@@ -166,6 +166,19 @@ function updateLotInfo(feature) {
     
     // Create HTML for lot information
     let lotInfoHTML = `
+        <div class="photo-gallery mb-4">
+            <div class="gallery-container">
+                <div class="gallery-scroll">
+                    ${lotImages.map((image, index) => `
+                        <div class="gallery-item">
+                            <img src="${image.url}" alt="${image.caption}" class="gallery-image">
+                        </div>
+                    `).join('')}
+                </div>
+                <button class="gallery-nav prev" onclick="scrollGallery(-1)"><i class="fas fa-chevron-left"></i></button>
+                <button class="gallery-nav next" onclick="scrollGallery(1)"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
         <div class="lot-details mb-4">
             <div class="d-flex justify-content-between mb-3">
                 <span class="badge ${status === 'For sale' ? 'bg-success' : 'bg-secondary'} fs-6">${status}</span>
@@ -257,3 +270,8 @@ document.addEventListener('DOMContentLoaded', initMap);
 
 // Make the openImageGallery function available globally
 window.openImageGallery = openImageGallery;
+function scrollGallery(direction) {
+    const gallery = document.querySelector('.gallery-scroll');
+    const scrollAmount = gallery.offsetWidth;
+    gallery.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+}
