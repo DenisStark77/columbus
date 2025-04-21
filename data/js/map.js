@@ -62,6 +62,12 @@ function addGeoJSONToMap(data) {
     
     // Fit map bounds to show all lots
     map.fitBounds(geoJsonLayer.getBounds());
+    
+    // Select lot 47 initially
+    const lot47Layer = lotLayers['Lot 47'];
+    if (lot47Layer) {
+        selectLot({ target: lot47Layer });
+    }
 }
 
 // Function that defines what happens when interacting with each feature
