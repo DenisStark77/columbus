@@ -59,6 +59,19 @@ function addGeoJSONToMap(data) {
         },
         onEachFeature: onEachFeature
     }).addTo(map);
+
+    // Add lot number labels
+    data.features.forEach(feature => {
+        const center = L.geoJSON(feature).getBounds().getCenter();
+        const lotNumber = feature.properties.name.replace('Lot ', '');
+        L.marker(center, {
+            icon: L.divIcon({
+                className: 'lot-label',
+                html: lotNumber,
+                iconSize: [20, 20]
+            })
+        }).addTo(map);
+    });
     
     // Fit map bounds to show all lots
     map.fitBounds(geoJsonLayer.getBounds());

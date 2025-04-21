@@ -16,6 +16,16 @@ main {
     border-radius: 0.25rem;
 }
 
+.lot-label {
+    background: none;
+    border: none;
+    color: #000;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: center;
+    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+}
+
 /* Equal height columns */
 .row {
     display: flex;
