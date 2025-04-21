@@ -128,13 +128,20 @@ function selectLot(e) {
         return;
     }
     
-    // Reset style of previously selected lot
+    // Reset style of previously selected lot and remove selection
     if (currentSelectedLot) {
-        resetHighlight({ target: currentSelectedLot });
+        currentSelectedLot.setStyle({
+            fillColor: getColorByStatus(currentSelectedLot.feature.properties.status),
+            weight: 2,
+            opacity: 1,
+            color: 'white',
+            dashArray: '3',
+            fillOpacity: 0.5
+        });
         currentSelectedLot.closePopup();
     }
     
-    // Set style for selected lot
+    // Set style for newly selected lot
     layer.setStyle({
         weight: 4,
         color: '#4dff4d',

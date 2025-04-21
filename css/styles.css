@@ -34,7 +34,7 @@ main {
 
 #map {
     flex: 1;
-    height: calc(100vh - 300px);
+    height: 100%;
     min-height: 600px;
 }
 
