@@ -1,222 +1,277 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Columbus Heights Estate</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css">
-    <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
-          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" 
-          crossorigin="" />
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Columbus Heights Estate</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f7f8f6;
+      --text: #1f2933;
+      --muted: #5f6c72;
+      --accent: #2f6f4e;
+      --border: #e0e5e1;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 80px 20px;
+    }
+
+    h1, h2 {
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin-top: 80px;
+      font-size: 1.8rem;
+    }
+
+    p {
+      color: var(--muted);
+      max-width: 720px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+      color: var(--muted);
+    }
+
+    .hero {
+      padding-top: 60px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(47,111,78,0.08);
+      color: var(--accent);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      margin-bottom: 20px;
+    }
+
+    .cta {
+      margin-top: 40px;
+    }
+
+    .cta a {
+      text-decoration: none;
+      background: var(--accent);
+      color: white;
+      padding: 14px 26px;
+      border-radius: 6px;
+      font-weight: 500;
+      display: inline-block;
+    }
+
+    .cta small {
+      display: block;
+      margin-top: 10px;
+      color: var(--muted);
+    }
+
+    .section {
+      border-top: 1px solid var(--border);
+      padding-top: 60px;
+      margin-top: 60px;
+    }
+
+    .columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    @media (max-width: 720px) {
+      .columns {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 2.1rem;
+      }
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 20px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
+
 <body>
-    <!-- Header -->
-    <header class="py-3 mb-4 border-bottom">
-        <div class="container d-flex flex-wrap justify-content-center">
-            <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-decoration-none">
-                <i class="fas fa-mountain me-2 fs-3 text-info"></i>
-                <span class="fs-3 fw-bold">Columbus Heights Estate</span>
-            </a>
-        </div>
-    </header>
 
-    <!-- Main Content -->
-    <main class="container mb-5">
-        
+  <div class="container hero">
+    <span class="badge">Independent off-grid estate</span>
 
-        <!-- Map and Lot Information Section -->
-        <section class="row mb-5">
-            <!-- Map Column -->
-            <div class="col-lg-7 mb-4 mb-lg-0">
-                <div class="card h-100">
-                    <div class="card-header d-flex justify-content-between align-items-center">
-                        <h3 class="mb-0">Property Map</h3>
-                        <span class="badge bg-info">Click on a lot for details</span>
-                    </div>
-                    <div class="card-body p-0">
-                        <div id="map" style="height: 600px;"></div>
-                    </div>
-                </div>
-            </div>
+    <h1>Columbus Heights Estate</h1>
 
-            <!-- Lot Information Column -->
-            <div class="col-lg-5">
-                <div class="card h-100">
-                    <div class="card-header">
-                        <h3 class="mb-0" id="lot-title">Select a Lot</h3>
-                    </div>
-                    <div class="card-body" id="lot-info">
-                        <div class="text-center py-5">
-                            <i class="fas fa-map-marker-alt fs-1 text-info mb-3"></i>
-                            <p class="lead">Click on a lot on the map to view its details</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <p>
+      Independent fincas in the Costa Rican mountains.<br />
+      8 minutes to Playa Hermosa. 12 minutes to Esterillos.<br />
+      Close to the ocean, outside the tourist bubble.
+    </p>
 
-        <!-- Project Challenges Section -->
-        <section>
-            <h2 class="text-center mb-4">Project Challenges</h2>
-            <p class="text-center mb-4">Columbus Heights Estate is a unique development project. Here are some challenges that potential buyers should be aware of:</p>
+    <p>
+      Paved roads. A simple gate. No central authority.<br />
+      Not a condominium. Not a managed development.
+    </p>
 
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                <!-- Challenge 1 -->
-                <div class="col">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="fas fa-bolt text-warning fs-4 me-2"></i>
-                                <h4 class="card-title mb-0">No Electricity</h4>
-                            </div>
-                            <p class="card-text">The property currently has no connection to the electrical grid. Owners will need to implement off-grid solutions such as solar panels.</p>
-                        </div>
-                        <div class="card-footer">
-                            <small>Solution: Solar power systems can be installed at an additional cost.</small>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Challenge 2 -->
-                <div class="col">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="fas fa-users text-danger fs-4 me-2"></i>
-                                <h4 class="card-title mb-0">Community Conflicts</h4>
-                            </div>
-                            <p class="card-text">There have been some historical disputes between community members regarding property boundaries and use of common areas.</p>
-                        </div>
-                        <div class="card-footer">
-                            <small>Solution: We're establishing a formal HOA with clear bylaws to prevent future conflicts.</small>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Challenge 3 -->
-                <div class="col">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="fas fa-tint text-info fs-4 me-2"></i>
-                                <h4 class="card-title mb-0">Water Leakages</h4>
-                            </div>
-                            <p class="card-text">During heavy rainy seasons, some lots may experience water runoff issues due to the mountainous terrain of the property.</p>
-                        </div>
-                        <div class="card-footer">
-                            <small>Solution: Proper drainage systems should be implemented during construction.</small>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Challenge 4 -->
-                <div class="col">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="fas fa-road text-secondary fs-4 me-2"></i>
-                                <h4 class="card-title mb-0">Road Access</h4>
-                            </div>
-                            <p class="card-text">Access roads to some lots may require additional maintenance, especially during the rainy season when erosion can occur.</p>
-                        </div>
-                        <div class="card-footer">
-                            <small>Solution: Regular road maintenance is planned as part of the community association.</small>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Challenge 5 -->
-                <div class="col">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="fas fa-wifi text-warning fs-4 me-2"></i>
-                                <h4 class="card-title mb-0">Internet Connectivity</h4>
-                            </div>
-                            <p class="card-text">Due to the remote location, high-speed internet options are limited. Satellite internet is currently the most viable option.</p>
-                        </div>
-                        <div class="card-footer">
-                            <small>Solution: We're in talks with several providers to bring better connectivity to the area.</small>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Challenge 6 -->
-                <div class="col">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="fas fa-truck text-danger fs-4 me-2"></i>
-                                <h4 class="card-title mb-0">Construction Logistics</h4>
-                            </div>
-                            <p class="card-text">Building materials need to be transported up the mountain, which can increase construction costs and timeline.</p>
-                        </div>
-                        <div class="card-footer">
-                            <small>Solution: We can recommend contractors who specialize in building in remote locations.</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="py-4 mt-5 bg-dark">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 mb-3 mb-md-0">
-                    <h5>Columbus Heights Estate</h5>
-                    <p class="text-muted">Your paradise in Costa Rica awaits</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <h5>Contact</h5>
-                    <p class="text-muted">Email: info@columbusheights.com<br>Phone: +506 1234-5678</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Modal for displaying lot images -->
-    <div class="modal fade" id="lotImagesModal" tabindex="-1" aria-labelledby="lotImagesModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="lotImagesModalLabel">Lot Images</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div id="lotImagesCarousel" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner" id="carouselInner">
-                            <!-- Images will be loaded dynamically -->
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#lotImagesCarousel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#lotImagesCarousel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="cta">
+      <a href="#questionnaire">Request orientation and next steps</a>
+      <small>Starts with a short questionnaire</small>
     </div>
+  </div>
 
-    <!-- Bootstrap JS Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Leaflet JS -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" 
-            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" 
-            crossorigin=""></script>
-    <!-- Custom JS -->
-    <script src="data/js/map.js"></script>
-    <script src="data/js/main.js"></script>
+  <div class="container section">
+    <h2>Location & context</h2>
+    <p>
+      Columbus Heights Estate is located in the hills above Costa Rica’s central Pacific coast.
+    </p>
+    <ul>
+      <li>8 minutes drive to Playa Hermosa, a world-class surf beach</li>
+      <li>12 minutes drive to Esterillos</li>
+      <li>No resort zone, no vacation rental strip</li>
+    </ul>
+    <p>
+      This area attracts people who enjoy the ocean but prefer to live outside tourist-driven environments.
+    </p>
+  </div>
+
+  <div class="container section">
+    <h2>What this place is — and is not</h2>
+
+    <div class="columns">
+      <div>
+        <strong>What this is</strong>
+        <ul>
+          <li>Independently owned fincas</li>
+          <li>Paved access roads</li>
+          <li>Off-grid living</li>
+          <li>No construction code</li>
+          <li>Voluntary maintenance contributions</li>
+        </ul>
+      </div>
+
+      <div>
+        <strong>What this is not</strong>
+        <ul>
+          <li>Not a condominium</li>
+          <li>Not an HOA</li>
+          <li>Not a curated community</li>
+          <li>Not passive ownership</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container section">
+    <h2>Decentralization as a feature</h2>
+    <p>
+      There is no central authority enforcing rules, timelines, or standards.
+    </p>
+    <p>
+      This allows freedom and low ongoing costs, but requires personal responsibility.
+      People who expect systems to take care of them usually struggle here.
+    </p>
+  </div>
+
+  <div class="container section">
+    <h2>The place today</h2>
+    <ul>
+      <li>Subdivided over 18 years ago</li>
+      <li>All lots privately owned</li>
+      <li>Original developer no longer exists</li>
+      <li>~20 houses built</li>
+      <li>~10 full-time residents</li>
+    </ul>
+  </div>
+
+  <div class="container section">
+    <h2>Who tends to feel at home here</h2>
+    <ul>
+      <li>People who value autonomy over convenience</li>
+      <li>Comfortable with off-grid realities</li>
+      <li>Seeking long-term life, not a vacation setup</li>
+      <li>Willing to trade structure for freedom</li>
+    </ul>
+  </div>
+
+  <div class="container section">
+    <h2>About us</h2>
+    <p>
+      This page is maintained by residents living here full-time.
+    </p>
+    <p>
+      Our background includes relocation to Costa Rica, legalization processes,
+      off-grid living, meditation, family constellations, yoga, music, and contemplative practices.
+    </p>
+    <p>
+      This does not define the neighborhood. Residents here are diverse.
+      It reflects who you may interact with if you proceed.
+    </p>
+  </div>
+
+  <div class="container section">
+    <h2>Land & availability</h2>
+    <p>
+      There is no central listing of available lots.
+      Some owners are open to selling. Others are not.
+      Pricing and conditions vary.
+    </p>
+  </div>
+
+  <div class="container section" id="questionnaire">
+    <h2>How to proceed</h2>
+    <ol>
+      <li>Review this page carefully</li>
+      <li>Complete a short questionnaire</li>
+      <li>A facilitator reviews aligned inquiries</li>
+    </ol>
+
+    <div class="cta">
+      <a href="https://example.com/questionnaire" target="_blank">Fill out the questionnaire</a>
+      <small>No direct resident contact at this stage</small>
+    </div>
+  </div>
+
+  <footer>
+    Places like this are not built. They are inhabited.
+  </footer>
+
 </body>
 </html>
