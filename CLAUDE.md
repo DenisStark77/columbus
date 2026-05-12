@@ -42,8 +42,9 @@ Single-file `index.html` — all CSS and JS inline. No build step.
 - Any old redirect-to-Gumroad on submit should be removed (the flow is now reversed).
 
 **Gumroad** — overlay script loaded at bottom of page.
-- Video Call ($200) — **LIVE**: `https://starkwave15.gumroad.com/l/che-videocall?wanted=true`
+- Video Call ($200) — **LIVE**: `https://gumroad.com/checkout?wanted=true&product=wovfmb&quantity=1&price=20000`
   - Set up as a Call product type with built-in scheduling.
+  - Uses direct-checkout URL (product ID `wovfmb`, price in cents) so the overlay opens with the right amount preset.
 - Half Day ($150) — placeholder URL: `https://gumroad.com/l/REPLACE-ME-HALFDAY?wanted=true`
 - Full Day ($250) — placeholder URL: `https://gumroad.com/l/REPLACE-ME-FULLDAY?wanted=true`
 
