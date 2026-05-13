@@ -360,6 +360,42 @@
   footer .brand{color:#fff;margin-bottom:1rem;display:block}
   footer .fine{font-size:.75rem;margin-top:1rem;opacity:.6}
 
+  /* Custom checkout overlay (in-page modal for Gumroad checkout) */
+  .checkout-modal{
+    position:fixed;inset:0;z-index:1000;
+    background:rgba(20,40,33,.88);
+    backdrop-filter:blur(6px);
+    display:none;align-items:center;justify-content:center;
+    padding:1rem;
+  }
+  .checkout-modal.open{display:flex}
+  .checkout-modal-inner{
+    position:relative;
+    width:100%;max-width:540px;
+    height:min(92vh,840px);
+    background:#fff;border-radius:6px;
+    overflow:hidden;
+    box-shadow:0 30px 80px rgba(0,0,0,.4);
+  }
+  .checkout-modal-close{
+    position:absolute;top:.6rem;right:.6rem;z-index:2;
+    background:rgba(255,255,255,.95);
+    border:0;width:34px;height:34px;border-radius:50%;
+    font-size:1.4rem;line-height:1;cursor:pointer;
+    color:var(--ink);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
+    transition:transform .15s;
+  }
+  .checkout-modal-close:hover{transform:scale(1.05)}
+  .checkout-modal iframe{
+    width:100%;height:100%;border:0;display:block;background:#fff;
+  }
+  @media (max-width:540px){
+    .checkout-modal{padding:0}
+    .checkout-modal-inner{max-width:100%;height:100vh;border-radius:0}
+  }
+
   /* WhatsApp float */
   .wa-float{
     position:fixed;bottom:24px;right:24px;z-index:60;
@@ -440,7 +476,7 @@
           </div>
           <div class="day-option-right">
             <div class="day-option-price">$200<small>USD</small></div>
-            <a class="gumroad-button day-option-reserve" href="https://gumroad.com/checkout?wanted=true&product=wovfmb&quantity=1&price=20000">Reserve →</a>
+            <a class="day-option-reserve" href="https://dandj.lemonsqueezy.com/checkout/buy/1065d108-16cf-4ca2-9d5f-561ece66ec74?embed=1&media=0&logo=0&desc=0&discount=0">Reserve →</a>
           </div>
         </div>
         <div class="day-option">
@@ -452,7 +488,7 @@
           <div class="day-option-right">
             <div class="day-option-price">$150<small>USD</small></div>
             <!-- REPLACE href WITH YOUR GUMROAD HALF-DAY PRODUCT URL -->
-            <a class="gumroad-button day-option-reserve" href="https://gumroad.com/l/REPLACE-ME-HALFDAY" data-gumroad-overlay-checkout="true">Reserve →</a>
+            <a class="day-option-reserve" href="https://gumroad.com/l/REPLACE-ME-HALFDAY?wanted=true">Reserve →</a>
           </div>
         </div>
         <div class="day-option">
@@ -464,7 +500,7 @@
           <div class="day-option-right">
             <div class="day-option-price">$250<small>USD</small></div>
             <!-- REPLACE href WITH YOUR GUMROAD FULL-DAY PRODUCT URL -->
-            <a class="gumroad-button day-option-reserve" href="https://gumroad.com/l/REPLACE-ME-FULLDAY" data-gumroad-overlay-checkout="true">Reserve →</a>
+            <a class="day-option-reserve" href="https://gumroad.com/l/REPLACE-ME-FULLDAY?wanted=true">Reserve →</a>
           </div>
         </div>
       </div>
@@ -646,6 +682,14 @@
   <div class="fine">© 2026 · columbusheights.estate · Hosted by the families who live here.</div>
 </footer>
 
+<!-- Custom checkout overlay -->
+<div class="checkout-modal" id="checkout-modal" role="dialog" aria-modal="true" aria-label="Checkout">
+  <div class="checkout-modal-inner">
+    <button type="button" class="checkout-modal-close" aria-label="Close checkout">&times;</button>
+    <iframe id="checkout-frame" src="" allow="payment *; clipboard-write *"></iframe>
+  </div>
+</div>
+
 <a href="https://wa.me/50663042667" class="wa-float" aria-label="Chat on WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0012.05 4a7.94 7.94 0 00-6.88 11.9L4 20l4.21-1.1a7.93 7.93 0 003.84.98h.01a7.94 7.94 0 005.54-13.56zM12.06 18.5h-.01a6.6 6.6 0 01-3.36-.92l-.24-.14-2.5.65.67-2.43-.16-.25a6.59 6.59 0 1112.16-3.5 6.6 6.6 0 01-6.56 6.59zm3.61-4.94c-.2-.1-1.17-.58-1.35-.64-.18-.07-.31-.1-.44.1s-.5.64-.62.77c-.11.13-.23.15-.43.05-.2-.1-.84-.31-1.6-.99-.59-.53-1-1.18-1.11-1.38-.12-.2-.01-.31.09-.41.09-.09.2-.23.3-.34.1-.12.13-.2.2-.33.07-.13.03-.25-.02-.35-.05-.1-.44-1.07-.6-1.46-.16-.38-.32-.33-.44-.34l-.38-.01a.73.73 0 00-.53.25c-.18.2-.7.69-.7 1.67 0 .98.72 1.93.82 2.06.1.13 1.41 2.16 3.41 3.03.48.21.85.33 1.14.42.48.15.91.13 1.25.08.38-.06 1.17-.48 1.34-.94.16-.46.16-.86.12-.94-.05-.08-.18-.13-.38-.23z"/></svg>
 </a>
@@ -669,13 +713,64 @@
   document.querySelectorAll('.faq-item').forEach(item=>{
     item.addEventListener('click',()=>item.classList.toggle('open'));
   });
+
+  // Custom checkout overlay — intercepts Reserve links and opens Gumroad in an iframe modal
+  (function(){
+    const modal = document.getElementById('checkout-modal');
+    const frame = document.getElementById('checkout-frame');
+    const closeBtn = modal.querySelector('.checkout-modal-close');
+
+    function openCheckout(url){
+      frame.src = url;
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeCheckout(){
+      modal.classList.remove('open');
+      frame.src = '';
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.day-option-reserve').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        openCheckout(link.href);
+      });
+    });
+
+    closeBtn.addEventListener('click', closeCheckout);
+    modal.addEventListener('click', e => {
+      if (e.target === modal) closeCheckout();
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && modal.classList.contains('open')) closeCheckout();
+    });
+
+    // Lemon Squeezy embed (?embed=1) postMessages events from *.lemonsqueezy.com.
+    // The real event names (confirmed by reading lemon.js source) are:
+    //   data === "mounted"           — embed UI ready
+    //   data === "close"             — user clicked the close button INSIDE the embed
+    //   data.event === "GA.Purchase" — purchase succeeded
+    // Auto-close on either a successful purchase (after a brief grace) or on the
+    // embed's own close request. (Gumroad emits no comparable event.)
+    window.addEventListener('message', e => {
+      let host = '';
+      try { host = new URL(e.origin).hostname; } catch (_) { return; }
+      if (!/(^|\.)lemonsqueezy\.com$/.test(host)) return;
+      if (!modal.classList.contains('open')) return;
+      const data = e.data;
+      if (data === 'close') {
+        closeCheckout();
+      } else if (data && data.event === 'GA.Purchase') {
+        setTimeout(closeCheckout, 2500);
+      }
+    });
+  })();
 </script>
 
 <!-- Tally embed loader -->
 <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
 
-<!-- Gumroad overlay checkout -->
-<script src="https://gumroad.com/js/gumroad.js"></script>
 
 </body>
 </html>

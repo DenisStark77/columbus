@@ -41,16 +41,22 @@ Single-file `index.html` — all CSS and JS inline. No build step.
 - The form's intro/outro copy in Tally still uses the old gating language ("we follow up only when there is alignment") — needs to be rewritten in Tally's UI to match the new "briefing / open door" framing.
 - Any old redirect-to-Gumroad on submit should be removed (the flow is now reversed).
 
-**Gumroad** — overlay script loaded at bottom of page.
-- Video Call ($200) — **LIVE**: `https://gumroad.com/checkout?wanted=true&product=wovfmb&quantity=1&price=20000`
-  - Set up as a Call product type with built-in scheduling.
-  - Uses direct-checkout URL (product ID `wovfmb`, price in cents) so the overlay opens with the right amount preset.
-- Half Day ($150) — placeholder URL: `https://gumroad.com/l/REPLACE-ME-HALFDAY?wanted=true`
-- Full Day ($250) — placeholder URL: `https://gumroad.com/l/REPLACE-ME-FULLDAY?wanted=true`
+**Checkout** opens in a **custom in-page iframe modal** built into `index.html` (no third-party overlay JS — neither `gumroad.js` nor `lemon.js` is loaded). The Reserve links are intercepted by inline JS at the bottom of the main `<script>` block; the link's `href` is loaded into `#checkout-frame` and `.checkout-modal` is toggled open. The custom modal replaced Gumroad's `gumroad.js` overlay because that script is unreliable for modern product types (e.g. Call products).
 
-All Reserve links use `class="gumroad-button day-option-reserve"` and **require `?wanted=true`** for the overlay to trigger. Without the query parameter, the link navigates to the product page instead of opening the overlay. Gumroad's default button styling is overridden by CSS with `!important` to preserve the warm/restrained look.
+Provider per product (mixed because the video call moved to Lemon Squeezy mid-flight):
 
-For half-day and full-day, set the **post-purchase redirect** in Gumroad to `https://columbusheights.estate/#book` so buyers land at the Tally form.
+- **Video Call ($200) — Lemon Squeezy**, LIVE: `https://dandj.lemonsqueezy.com/checkout/buy/1065d108-16cf-4ca2-9d5f-561ece66ec74?embed=1&media=0&logo=0&desc=0&discount=0`
+  - `?embed=1` is LS's iframe-friendly checkout mode. The extra flags strip media/logo/description/discount UI for a tighter panel.
+  - LS's embed posts messages from a `*.lemonsqueezy.com` origin. The real event names (confirmed by reading `lemon.js`) are: `data === "mounted"` (UI ready), `data === "close"` (close button inside embed), `data.event === "GA.Purchase"` (purchase succeeded). Our modal closes immediately on `"close"` and after a 2.5s grace on `GA.Purchase`. There is no `Checkout.Success` event — don't be fooled by older docs.
+  - **Known dev-environment caveat.** On `http://localhost` the embed iframe gets `ERR_ABORTED` (LS sets `SameSite=None; Secure` cookies on its 302 → cart redirect, which Chrome rejects from an HTTP parent into a cross-site iframe). It works on the production HTTPS origin. If the embed ever stops rendering in prod too, fall back to LS's native overlay: keep the LS URL, add `class="lemonsqueezy-button"` to the link, drop our click interceptor for that one link, and load `<script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>`.
+- **Half Day ($150) — Gumroad**, placeholder URL: `https://gumroad.com/l/REPLACE-ME-HALFDAY?wanted=true`
+- **Full Day ($250) — Gumroad**, placeholder URL: `https://gumroad.com/l/REPLACE-ME-FULLDAY?wanted=true`
+
+All Reserve links use `class="day-option-reserve"`. Gumroad URLs **keep `?wanted=true`** so they still work as direct links if JS fails (it makes the link land on the checkout step rather than the product page). Styling lives on `a.day-option-reserve` in the inline `<style>` block.
+
+**Auto-close on success.** Only Lemon Squeezy emits a `postMessage` we can listen to. Gumroad does not, so the half/full-day modals must be closed manually via the × button (or by setting Gumroad's per-product **post-purchase redirect** to `https://columbusheights.estate/#book` and adding same-origin iframe-`load` detection — not yet wired).
+
+**Risk / fallback.** A provider may serve checkout with `X-Frame-Options: DENY` (or a restrictive CSP `frame-ancestors`); the modal would open but the iframe panel would be blank or show a "refused to display" error. Fallback is to replace the iframe load with `window.open(url, '_blank')` so the checkout opens in a popup window/tab instead. Currently both Gumroad and LS-embed render fine inside the iframe.
 
 **Contact**
 - Email: `hello@columbusheights.estate` (mailto in owner CTA, footer)
