@@ -23,6 +23,8 @@ Single-page landing site for an owner-built, off-grid community in the hills abo
 
 **Honest framing of the place.** The site explicitly names the realities: no developer, no grid electricity (ICE conflict), volunteer HOA, owner-built community of 5–6 families. That honesty is the filter — wrong-fit people self-eject.
 
+**No public contact back-channels.** The orientation call is the only public way to reach us, with the Tally form as an optional side door for owners/sellers/other. We deliberately removed the floating WhatsApp button — direct one-click chat undermines the $50 gate the whole architecture depends on. Phone, email, and WhatsApp continue to exist on the operator side (inside Gumroad receipts, workflow emails, post-orientation correspondence) but never as a button on the public landing.
+
 ---
 
 ## Architecture (top to bottom)
@@ -35,7 +37,7 @@ Single-page landing site for an owner-built, off-grid community in the hills abo
 6. **For Owners** (`#owners`) — light list of four services. Quiet visual treatment. **No section CTA anymore** — the old "Get in touch →" mailto was absorbed into the Stay in Touch form below.
 7. **Stay in Touch** (`#book`) — Tally questionnaire in a cream card. The single contact surface for everything that isn't an orientation booking: lot owners, sellers, unforeseen inquiries. Copy is explicit that we read every response but **only reply when something resonates** — and if we don't write back, the 15-minute orientation call above is always an open door. Day requests go through the orientation booking, not this form.
 8. **FAQ** (`#faq`) — accordion. Booking questions plus family/kids (schools, healthcare, internet).
-9. **Footer** — brand, tagline, domain. Floating WhatsApp button.
+9. **Footer** — brand, tagline, domain. No floating contact button. The orientation call is the only public way through; the Tally form is the optional side door.
 
 Single-file `index.html` — all CSS and JS inline. No build step.
 
@@ -54,13 +56,13 @@ Single-file `index.html` — all CSS and JS inline. No build step.
 
 **History (so future-you doesn't redo this work).** We tried embedding Gumroad and Lemon Squeezy checkouts in a custom in-page iframe modal — abandoned because Gumroad's modern URLs don't reliably support overlay and LS's `?embed=1` flow trips on cross-site cookies. We tried Cal.com's native payment integration — PayPal blocks CR-merchant card checkout, HitPay doesn't support CR, Stripe requires US/EU residency, Polar.sh has no Cal.com integration. We considered Stripe Atlas (US LLC) and UAE Free Zone incorporation — deferred at current scale, plus Stripe Atlas has real banking-rejection risk on a Russian passport. The iframe-modal code (with all its quirks — LS `postMessage` event names, localhost `SameSite` cookie trap, `X-Frame-Options` fallback to `window.open()`) lives in git history at commit `ca9d2da` and prior; revive it only if a future product genuinely needs in-page checkout.
 
-**Risk / fallback.** Two things can break the buyer flow: the Gumroad checkout (single source of failure for payment) and the Cal.com URL inside the Gumroad receipt/workflow. If Gumroad goes down the Reserve button still degrades to a normal link — buyer sees Gumroad's error page rather than a broken modal. If the Cal.com link breaks (event type renamed, account suspended), buyers will pay and then find themselves stuck — monitor that the receipt email's link always points at a live Cal.com event. Easy mitigation: include the WhatsApp number (`+506 6304 2667`) in the Gumroad receipt content as a "if the booking link doesn't work, reach out here" line.
+**Risk / fallback.** Two things can break the buyer flow: the Gumroad checkout (single source of failure for payment) and the Cal.com URL inside the Gumroad receipt/workflow. If Gumroad goes down the Reserve button still degrades to a normal link — buyer sees Gumroad's error page rather than a broken modal. If the Cal.com link breaks (event type renamed, account suspended), buyers will pay and then find themselves stuck — monitor that the receipt email's link always points at a live Cal.com event. Easy mitigation: include a direct contact (Denis's email `hello@columbusheights.estate` and/or WhatsApp `+506 6304 2667`) inside the Gumroad receipt content as a "if the booking link doesn't work, reach out here" line. That contact appears only after payment — it doesn't sit on the public landing where it would undermine the $50 gate.
 
 **Operator workflow per booking.** Buyer pays on Gumroad → instantly sees the Cal.com booking link in the on-screen receipt and again by email → clicks it → picks a time → Cal.com auto-confirms and sends the Google Meet + calendar invite. Denis takes **no manual action** between the payment and the calendar invite landing in his synced calendar. For follow-on bookings (extended call, half-day, full day): after the orientation call, Denis emails the matching Gumroad product link plus the $50 coupon code; the same Gumroad → email → calendar auto-flow kicks in from there.
 
-**Contact**
-- Email: `hello@columbusheights.estate` (mailto in owner CTA, footer)
-- WhatsApp: `+506 6304 2667` (floating button → `https://wa.me/50663042667`)
+**Contact (operator-side only, not on the public landing).** The only public way to reach us is the orientation booking ($50 → Cal.com) or the Tally form. The following details exist for use inside the Gumroad receipt content, in workflow emails, and in operator notes — never as a public-page button or mailto:
+- Email: `hello@columbusheights.estate`
+- WhatsApp: `+506 6304 2667` (was a floating button on the landing — removed because a direct one-click chat back-channel undermines the $50 orientation gate)
 
 ---
 
