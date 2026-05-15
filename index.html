@@ -121,11 +121,16 @@
   .btn-primary:hover{background:#b3884a;transform:translateY(-2px)}
   .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.6)}
   .btn-ghost:hover{background:rgba(255,255,255,.1);border-color:#fff}
+  /* Pinned to viewport bottom while the hero is on screen, fades out as soon as
+     the user starts scrolling so it doesn't sit on top of the day section. */
   .hero-scroll{
-    position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:2;
+    position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);z-index:2;
     color:rgba(255,255,255,.7);font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;
     display:flex;flex-direction:column;align-items:center;gap:.6rem;
+    pointer-events:none;
+    transition:opacity .3s ease, transform .3s ease;
   }
+  .hero-scroll.hidden{opacity:0;transform:translate(-50%,8px)}
   .hero-scroll .line{width:1px;height:40px;background:rgba(255,255,255,.5);animation:scrollPulse 2.4s infinite}
   @keyframes scrollPulse{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}50.001%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 
@@ -190,16 +195,22 @@
   .day-booking-title{font-size:1.6rem;color:var(--forest-deep);font-weight:400;margin-bottom:.6rem}
   .day-booking-title em{font-style:italic;color:var(--gold)}
   .day-booking-lead{font-size:.95rem;color:var(--muted);line-height:1.6;margin:0}
-
-  /* Soft inline CTA — quieter than a button (still used in the Owners section) */
-  .link-cta{
-    display:inline-block;margin-top:2rem;
-    font-size:.95rem;color:var(--forest);
-    border-bottom:1px solid var(--gold);
-    padding-bottom:.15rem;letter-spacing:.02em;
-    transition:color .2s, border-color .2s;
+  .day-reserve{
+    display:inline-block;
+    margin-top:2rem;
+    padding:.95rem 2.4rem;
+    background:var(--forest);
+    color:#fff;
+    font-size:.8rem;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    border-radius:2px;
+    transition:background .25s ease, transform .25s ease;
   }
-  .link-cta:hover{color:var(--gold)}
+  .day-reserve:hover{
+    background:var(--gold);
+    transform:translateY(-2px);
+  }
 
   @media (max-width:820px){
     .day-grid{grid-template-columns:1fr;gap:3rem}
@@ -265,8 +276,6 @@
   }
   .service h3 em{font-style:italic}
   .service p{font-size:.9rem;color:var(--muted);line-height:1.6}
-  .owner-cta{text-align:center;margin-top:3rem;max-width:560px;margin-left:auto;margin-right:auto}
-  .owner-cta p{color:var(--muted);font-size:.95rem;margin-bottom:1rem;line-height:1.6;font-style:italic}
   @media (max-width:820px){.services-list{grid-template-columns:1fr;gap:0}}
 
   /* Booking form */
@@ -394,9 +403,9 @@
       <div class="day-includes">
         <div class="day-includes-title">After the orientation, possible next steps</div>
         <ul class="day-outcomes">
-          <li><span class="outcome-name">Extended video conversation</span><span class="outcome-add">+$150 · $200 total</span></li>
-          <li><span class="outcome-name">Half-day visit on the land</span><span class="outcome-add">+$100 · $150 total</span></li>
-          <li><span class="outcome-name">Full day with a meal from the garden</span><span class="outcome-add">+$200 · $250 total</span></li>
+          <li><span class="outcome-name">Extended video conversation</span><span class="outcome-add">$150</span></li>
+          <li><span class="outcome-name">Half-day visit on the land</span><span class="outcome-add">$100</span></li>
+          <li><span class="outcome-name">Full day with a meal from the garden</span><span class="outcome-add">$200</span></li>
           <li><span class="outcome-name">Sometimes, nothing more — and that's fine too</span><span class="outcome-add">no further cost</span></li>
         </ul>
       </div>
@@ -407,11 +416,9 @@
     <div class="day-booking-header">
       <div class="section-eyebrow">A First Conversation</div>
       <h3 class="day-booking-title">Book a 15-minute orientation · <em>$50</em></h3>
-      <p class="day-booking-lead">Pick a time that works for you. We'll send a confirmation with the Zoom link once you book.</p>
+      <p class="day-booking-lead">Reserve below and you'll receive a scheduling link to pick a time that works for you. The Zoom invite arrives automatically once you've booked.</p>
+      <a class="day-reserve" href="https://starkwave15.gumroad.com/l/che-orientation?wanted=true" target="_blank" rel="noopener">Reserve →</a>
     </div>
-    <!-- Cal inline embed begins -->
-    <div style="width:100%;min-height:640px;overflow:auto" id="my-cal-inline-orientation"></div>
-    <!-- Cal inline embed ends -->
   </div>
 </section>
 
@@ -501,10 +508,6 @@
       </div>
     </div>
 
-    <div class="owner-cta reveal">
-      <p>Tell us a little about your lot and what you'd like help with — we'll write back within a couple of days.</p>
-      <a href="mailto:hello@columbusheights.estate?subject=Lot%20at%20Columbus%20Heights" class="link-cta">Get in touch →</a>
-    </div>
   </div>
 </section>
 
@@ -514,10 +517,10 @@
     <div class="reveal">
       <div class="section-eyebrow">Stay in Touch</div>
       <h2 class="section-title">Tell us a little <em>about you.</em></h2>
-      <p class="section-lead">If you're here for a reason that doesn't fit any of the paths above — you own a lot at Columbus Heights, you're exploring an idea we haven't thought of, you just want to start a quiet conversation — fill this out. We read every response and write back within a couple of days.</p>
+      <p class="section-lead">If you own a lot at Columbus Heights, you're thinking about selling, you're exploring an idea we haven't thought of, or you just want to start a quiet conversation — write to us through the form. We read every response. We reply when something resonates.</p>
 
       <div class="book-note">
-        Not the right entry point for a Day at Columbus Heights — that flow starts above with the 15-minute orientation. This form is for everything else.
+        We can't promise a reply to every message — but if we don't write back and your question still matters to you, the 15-minute orientation call above is always open. A day visit always starts there.
       </div>
     </div>
 
@@ -550,7 +553,7 @@
       </div>
       <div class="faq-item">
         <div class="faq-q">Healthcare — what's nearby?</div>
-        <div class="faq-a">[YOUR ANSWER — nearest clinic and hospital with distance, and a sentence on quality. Note Costa Rica's two-system reality (public Caja for residents + private). Mention which doctors / dentists local families actually use. Pharmacies. Emergency response time if known.]</div>
+        <div class="faq-a">Jacó is about fifteen minutes from the gate — several hospitals, multiple dentists, and a handful of alternative-health practitioners. The basics and the not-so-basics are both within easy reach.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">How's the internet? Can we work remotely?</div>
@@ -558,7 +561,7 @@
       </div>
       <div class="faq-item">
         <div class="faq-q">How do I actually get there?</div>
-        <div class="faq-a">We'll send full directions once your visit is confirmed. The community is reachable by rental car (4x4 recommended in green season) and we can also recommend a local driver if you'd rather not drive.</div>
+        <div class="faq-a">We'll send full directions once your visit is confirmed. A regular rental car is fine — the road from the highway to the gate is concrete, and the roads inside the community are paved. No 4x4 required. We can also recommend a local driver if you'd rather not drive.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">What should I bring?</div>
@@ -592,10 +595,12 @@
 </a>
 
 <script>
-  // Sticky nav
+  // Sticky nav + fade the hero scroll hint as soon as scrolling starts
   const nav = document.getElementById('nav');
+  const scrollHint = document.querySelector('.hero-scroll');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 60);
+    if (scrollHint) scrollHint.classList.toggle('hidden', window.scrollY > 40);
   });
 
   // Reveal on scroll
@@ -614,18 +619,6 @@
 
 <!-- Tally embed loader -->
 <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
-
-<!-- Cal.com inline embed loader -->
-<script type="text/javascript">
-  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-  Cal("init", "orientation", {origin:"https://app.cal.com"});
-  Cal.ns.orientation("inline", {
-    elementOrSelector:"#my-cal-inline-orientation",
-    config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true"},
-    calLink: "denis-stark/orientation",
-  });
-  Cal.ns.orientation("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
-</script>
 
 </body>
 </html>
