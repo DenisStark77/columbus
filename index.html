@@ -90,6 +90,17 @@
     overflow:hidden;
   }
   .hero .photo{position:absolute;inset:0;z-index:0}
+  .hero-img{
+    position:absolute;inset:0;z-index:0;
+    width:100%;height:100%;
+    object-fit:cover;object-position:center;
+    display:block;
+  }
+  /* When a real <img> sits inside a .day-photo, .place-photo, or .life-tile
+     wrapper, make it fill the box and crop with object-fit:cover. */
+  .day-photo, .place-photo{overflow:hidden}
+  .day-photo > img, .place-photo > img{display:block;width:100%;height:100%;object-fit:cover}
+  .life-tile > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
   .hero-veil{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(20,40,33,.5) 0%,rgba(20,40,33,.7) 100%)}
   .hero-inner{position:relative;z-index:2;padding:0 1.5rem;max-width:920px}
   .hero-eyebrow{
@@ -358,7 +369,7 @@
 
 <!-- Hero -->
 <header class="hero">
-  <div class="photo" data-label="HERO PHOTO — wide landscape from your lot or a viewpoint in the community: ocean horizon, jungle ridge, or both. Ideally golden hour."></div>
+  <img class="hero-img" src="images/hero.jpg" alt="Columbus Heights — aerial view of the road through green fields, misty mountains in the distance" loading="eager" fetchpriority="high" width="2400" height="1800">
   <div class="hero-veil"></div>
 
   <div class="hero-inner">
@@ -380,7 +391,9 @@
 <!-- The Day — centerpiece -->
 <section class="day" id="day">
   <div class="container day-grid">
-    <div class="day-photo photo reveal" data-label="DAY PHOTO — vertical 4:5. Suggest: the two of you walking the road with a guest, or a wide of the garden / a meal being prepared outdoors. Something that says 'this is what your day looks like.'"></div>
+    <div class="day-photo reveal">
+      <img src="images/day.jpg" alt="An evening at Columbus Heights — glamping tent at dusk, warm lamplight, fairy lights in the trees" loading="lazy" width="1200" height="1600">
+    </div>
 
     <div class="day-text reveal">
       <div class="section-eyebrow">A Day at Columbus Heights</div>
@@ -430,7 +443,9 @@
       </div>
     </div>
 
-    <div class="place-photo photo reveal" data-label="PLACE PHOTO — wide landscape 21:9. Suggest: the gate, or the main road with jungle on both sides, or a community gathering. Should convey 'real and inhabited.'"></div>
+    <div class="place-photo reveal">
+      <img src="images/place.jpg" alt="Aerial view of our lot at Columbus Heights — fruit-forest plot, owner-built house, surrounding jungle" loading="lazy" width="2000" height="1500">
+    </div>
   </div>
 </section>
 
@@ -445,19 +460,19 @@
 
     <div class="life-grid reveal">
       <div class="life-tile">
-        <div class="photo" data-label="HOUSE — exterior of your home, ideally with a sense of the surroundings"></div>
+        <img src="images/house.jpg" alt="Our owner-built house, framed by trees on the property" loading="lazy" width="1067" height="1600">
         <div class="life-caption"><strong>The House</strong><span>Owner-built</span></div>
       </div>
       <div class="life-tile">
-        <div class="photo" data-label="SOLAR — solar panel array, inverter wall, or you on a roof working on them"></div>
+        <img src="images/solar.jpg" alt="Rooftop solar panels overlooking the green field and hills beyond" loading="lazy" width="960" height="1280">
         <div class="life-caption"><strong>Solar</strong><span>Off-grid, year five</span></div>
       </div>
       <div class="life-tile">
-        <div class="photo" data-label="GARDEN — the permaculture garden, food forest, a heavy fruit tree, or a basket of produce"></div>
+        <img src="images/garden.jpg" alt="Papaya tree from below — green fruits and dramatic leaves against the sky" loading="lazy" width="1200" height="1600">
         <div class="life-caption"><strong>The Garden</strong><span>Food forest</span></div>
       </div>
       <div class="life-tile">
-        <div class="photo" data-label="BREAD or KITCHEN — fresh loaf out of the oven, hands kneading, jars of ferments, simple kitchen life"></div>
+        <img src="images/kitchen.jpg" alt="A loaf of fresh bread on the kitchen counter, with the hills visible through the window" loading="lazy" width="1200" height="1600">
         <div class="life-caption"><strong>The Kitchen</strong><span>Slow food, mostly ours</span></div>
       </div>
     </div>

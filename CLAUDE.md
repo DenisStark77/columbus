@@ -68,11 +68,18 @@ Single-file `index.html` — all CSS and JS inline. No build step.
 
 ## Open items / placeholders
 
-**Photo slots** — every image on the page is currently a stylized SVG placeholder with a dashed border and a description of what photo belongs there:
-- Hero — wide landscape from the property, ideally golden hour
-- Day section — vertical 4:5, "what your day looks like" (the walk, the garden, a meal in progress)
-- Place section — 21:9 panoramic of the gate / road / community
-- How We Live — four 3:4 verticals: house exterior, solar array, food forest, kitchen/bread
+**Photo slots** — all 7 wired up. Real images live in `images/` at the repo root:
+- `hero.jpg` — aerial road through fields, 1024×768 (source resolution; slightly soft on retina but the dark veil absorbs it)
+- `day.jpg` — glamping tent at dusk with fairy lights, 1200×1600
+- `place.jpg` — aerial of our lot with fruit-forest plot, 2000×1500, ~660KB at quality 55
+- `house.jpg` — family on porch of the white house through trees, 1067×1600
+- `solar.jpg` — rooftop panels + green lawn + mountains, 960×1280
+- `garden.jpg` — papaya tree from below against blue sky, 1200×1600
+- `kitchen.jpg` — rustic bread loaf with mountain view through window, 1200×1600
+
+**Family-photo rule update.** The original CLAUDE.md said "no family photo." We relaxed it: the House tile shows the family on the porch, and the Day tile has the family small inside the lit tent at dusk. Both were deliberate choices — the warmth pays off the "actually live the life" framing — but if you want to swap to no-faces alternates later, keep `IMG_2540.jpeg` (hills + road) as a hero/place backup and re-shoot the House from a faces-out angle.
+
+**Image pipeline.** Python PIL with `ImageOps.exif_transpose` (bakes iPhone EXIF rotation into pixels — iPhone JPEGs are stored landscape with an orientation tag, and `sips` ignores the tag during resize), then `thumbnail()` to fit within a max-dim box, then `JPEG quality=55–75 optimize=True progressive=True`. CSS pattern: each photo wrapper (`.day-photo`, `.place-photo`, `.life-tile`) gets `overflow:hidden`, and its child `> img` gets `width:100%; height:100%; object-fit:cover` so the source aspect doesn't have to match the slot exactly. The old placeholder div pattern (`<div class="photo" data-label="...">` rendering a green gradient + dashed border) is still in the CSS and could be re-enabled for future sections.
 
 **Gumroad products.** The orientation ($50) is the only Gumroad URL on the landing — `https://starkwave15.gumroad.com/l/che-orientation?wanted=true`. Three follow-on products (extended video conversation, half-day, full day) live in the same account at gross prices ($200 / $150 / $250) and are emailed manually after the orientation call with a $50 coupon code attached. Suggested type for all four: regular Digital product (not Call) — Cal.com handles scheduling, Gumroad just collects money.
 
