@@ -2,6 +2,8 @@
    annotated periods as bands, the number of sales next to every figure, tables beside charts. */
 (function () {
   var LOCALES = { en: 'en-US', es: 'es-CR', ru: 'ru-RU' };
+  /* Purchases per year start here: earlier years are few and the history gets less complete the further back it goes. */
+  var SALES_FROM = 2019;
   var EN = {
     'mk.band.cadastral': 'Includes transfers at cadastral value',
     'mk.band.nogrid': 'No grid electricity',
@@ -13,11 +15,11 @@
     'mk.own.extranjero': 'Foreign individuals',
     'mk.own.mixto': 'Mixed',
     'mk.own.unknown': 'Not identified',
-    'mk.st.lots_without_any_flag': 'No entries',
-    'mk.st.lots_with_mortgage_or_tax_lien': 'Mortgage or tax lien',
-    'mk.st.lots_in_foreclosure_proceedings': 'Foreclosure proceedings',
-    'mk.st.lots_with_fraud_prevention_note': 'Preventive note',
-    'mk.st.lots_frozen_by_court': 'Transfers blocked by court',
+    'mk.st.none': 'No entries',
+    'mk.st.mortgage': 'Mortgage or tax lien',
+    'mk.st.foreclosure': 'Foreclosure proceedings',
+    'mk.st.preventive': 'Preventive note',
+    'mk.st.court': 'Transfers blocked by court',
     'mk.tip.count': '{label}: {n} lots',
     'mk.unit.purchases': 'purchases'
   };
@@ -67,23 +69,24 @@
   function salesChart() {
     var el = document.getElementById('chart-sales');
     if (!el || !stats) return;
-    var rows = stats.sales_per_year.slice();
+    var rows = stats.sales_per_year.filter(function (r) { return r.year >= SALES_FROM; });
     var byYear = {}; rows.forEach(function (r) { byYear[r.year] = r; });
     var y0 = rows[0].year, y1 = rows[rows.length - 1].year;
     var years = []; for (var y = y0; y <= y1; y++) years.push(y);
     var W = 720, H = 300, mL = 34, mR = 10, mT = 34, mB = 34;
     var pw = W - mL - mR, ph = H - mT - mB;
-    var gap = 3, bw = pw / years.length - gap;
+    var gap = 10, bw = Math.min(56, pw / years.length - gap);
     var maxV = niceMax(Math.max.apply(null, rows.map(function (r) { return r.compraventas; })), 20);
     var sy = function (v) { return mT + ph - (v / maxV) * ph; };
-    var sx = function (i) { return mL + i * (bw + gap) + gap / 2; };
+    var slot = pw / years.length;
+    var sx = function (i) { return mL + i * slot + (slot - bw) / 2; };
     var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Purchases per year">';
     // bands
     var bands = [[2019, 2021, 'mk.band.cadastral'], [2025, 2026, 'mk.band.nogrid']];
     bands.forEach(function (b) {
       var i0 = years.indexOf(b[0]), i1 = years.indexOf(b[1]);
       if (i0 < 0 || i1 < 0) return;
-      var x0 = sx(i0) - gap / 2, x1 = sx(i1) + bw + gap / 2;
+      var x0 = mL + i0 * slot, x1 = mL + (i1 + 1) * slot;
       s += '<rect class="band" x="' + x0 + '" y="' + (mT - 18) + '" width="' + (x1 - x0) + '" height="' + (ph + 18) + '"/>';
       s += '<text x="' + ((x0 + x1) / 2) + '" y="' + (mT - 6) + '" text-anchor="middle" font-size="10">' + esc(t(b[2])) + '</text>';
     });
@@ -92,7 +95,6 @@
       s += '<line class="axis" x1="' + mL + '" x2="' + (W - mR) + '" y1="' + sy(g) + '" y2="' + sy(g) + '"/>';
       s += '<text x="' + (mL - 6) + '" y="' + (sy(g) + 4) + '" text-anchor="end">' + g + '</text>';
     }
-    var labelYears = [2019, 2020, 2021, 2024, 2025, 2026];
     years.forEach(function (yr, i) {
       var r = byYear[yr] || { year: yr, compraventas: 0, other_transfers: 0 };
       var h = (r.compraventas / maxV) * ph;
@@ -100,9 +102,9 @@
       s += '<g data-tip="' + esc(tip) + '">';
       s += '<rect x="' + sx(i) + '" y="' + mT + '" width="' + bw + '" height="' + ph + '" fill="transparent"/>';
       s += '<path class="bar" d="' + barPath(sx(i), sy(r.compraventas), bw, h, 4) + '"/>';
-      if (labelYears.indexOf(yr) >= 0 && r.compraventas > 0) s += '<text class="val" x="' + (sx(i) + bw / 2) + '" y="' + (sy(r.compraventas) - 5) + '" text-anchor="middle">' + r.compraventas + '</text>';
+      if (r.compraventas > 0) s += '<text class="val" x="' + (sx(i) + bw / 2) + '" y="' + (sy(r.compraventas) - 5) + '" text-anchor="middle">' + r.compraventas + '</text>';
       s += '</g>';
-      if (yr % 2 === 0) s += '<text x="' + (sx(i) + bw / 2) + '" y="' + (H - 12) + '" text-anchor="middle">' + yr + '</text>';
+      s += '<text x="' + (sx(i) + bw / 2) + '" y="' + (H - 12) + '" text-anchor="middle">' + yr + '</text>';
     });
     s += '</svg>';
     el.innerHTML = s;
@@ -181,14 +183,15 @@
   function statusChart() {
     if (!stats) return;
     var c = stats.registry_status_summary;
-    var order = ['lots_without_any_flag', 'lots_with_mortgage_or_tax_lien', 'lots_in_foreclosure_proceedings', 'lots_with_fraud_prevention_note', 'lots_frozen_by_court'];
-    hbarChart('chart-status', order.filter(function (k) { return c[k] != null; }).map(function (k) { return { label: t('mk.st.' + k), value: c[k] }; }), 'Registry entries, lots by kind');
+    /* stats key -> label key */
+    var rows = [['lots_without_any_flag', 'none'], ['lots_with_mortgage_or_tax_lien', 'mortgage'], ['lots_in_foreclosure_proceedings', 'foreclosure'], ['lots_with_fraud_prevention_note', 'preventive'], ['lots_frozen_by_court', 'court']];
+    hbarChart('chart-status', rows.filter(function (r) { return c[r[0]] != null; }).map(function (r) { return { label: t('mk.st.' + r[1]), value: c[r[0]] }; }), 'Registry entries, lots by kind');
   }
 
   function fillTables() {
     if (!stats) return;
     var tb = document.getElementById('table-sales');
-    if (tb) tb.innerHTML = stats.sales_per_year.map(function (r) {
+    if (tb) tb.innerHTML = stats.sales_per_year.filter(function (r) { return r.year >= SALES_FROM; }).map(function (r) {
       return '<tr><td>' + r.year + '</td><td class="num">' + r.compraventas + '</td><td class="num">' + r.other_transfers + '</td></tr>';
     }).join('');
     var tp = document.getElementById('table-prices');

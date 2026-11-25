@@ -75,6 +75,7 @@
     if (!iso) return '';
     var p = iso.split('-').map(Number);
     var d = new Date(Date.UTC(p[0], p[1] - 1, p[2]));
+    if (lang() === 'ru') return new Intl.DateTimeFormat('ru-RU', { day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'UTC' }).format(d);
     return new Intl.DateTimeFormat(locale(), { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }).format(d);
   }
   function esc(s) {

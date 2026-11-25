@@ -1,6 +1,10 @@
 # Columbus Heights — columbusheights.estate
 
-Single-page landing site for an owner-built, off-grid community in the hills above Costa Rica's central Pacific coast. The page's job is to convert two distinct audiences: prospective newcomers (toward a paid in-person or video visit) and existing lot owners (toward a small set of services). Deploys to GitHub Pages from `main`.
+Independent lot map and registry check for Columbus Heights, an owner-built, off-grid
+community in the hills above Costa Rica's central Pacific coast (Quebrada Amarilla, Jacó).
+Static site, six pages, no build step, deployed to GitHub Pages from `main`. The site
+serves two audiences through one door — prospective buyers and existing lot owners —
+and sells nothing directly: every service is a request answered personally.
 
 ---
 
@@ -95,65 +99,89 @@ nobody retries them by accident.
 
 ---
 
-## Architecture (top to bottom)
+## Architecture (pages and files)
 
-1. **Nav** — sticky, transparent over hero, opaque on scroll. Links: The Day, The Place, How We Live, Owners, Stay in Touch. CTA "Book a Day" → `#book`.
-2. **Hero** — full-height, dark veil over photo placeholder. Title: *Come spend a day with us.*
-3. **The Day at Columbus Heights** (`#day`) — the centerpiece. Two-column photo + content up top (the pitch + a transparent list of the four possible next-step outcomes). Below it, a full-width cream booking card with a single **Reserve →** button that opens the $50 orientation Gumroad checkout in a new tab. No scheduling UI on the landing — the Cal.com link is delivered in Gumroad's post-purchase receipt.
-4. **The Place** (`#place`) — *What's here / What's not* two-card split. Honest about the development's history and current status.
-5. **How We Live** (`#life`) — dark forest section. 4-tile gallery: house, solar, garden, kitchen.
-6. **For Owners** (`#owners`) — light list of four services. Quiet visual treatment. **No section CTA anymore** — the old "Get in touch →" mailto was absorbed into the Stay in Touch form below.
-7. **Stay in Touch** (`#book`) — Tally questionnaire in a cream card. The single contact surface for everything that isn't an orientation booking: lot owners, sellers, unforeseen inquiries. Copy is explicit that we read every response but **only reply when something resonates** — and if we don't write back, the 15-minute orientation call above is always an open door. Day requests go through the orientation booking, not this form.
-8. **FAQ** (`#faq`) — accordion. Booking questions plus family/kids (schools, healthcare, internet).
-9. **Footer** — brand, tagline, domain. No floating contact button. The orientation call is the only public way through; the Tally form is the optional side door.
+```
+index.html          map + lot card (#map-section), Who we are (#who), How it works (#how),
+                    For owners (#owners), FAQ (#faq), footer
+how-we-count.html   methodology and its limits
+how-we-earn.html    disclosure: our lots 47 and 123, what we are paid for, role labels
+market.html         statistics from data/stats_public.json (js/market.js)
+request.html        service request (Tally), prefilled from ?lot=N&service=…
+disagree.html       "disagree with the estimate" (Tally), prefilled from ?lot=N
+css/site.css        shared styles: tokens, nav, intro band, map + card, steps, owners, FAQ,
+                    footer, prose pages, charts, forms
+js/map.js           Leaflet 1.9.4 + OSM tiles; joins data/lots.json (geometry, lot number)
+                    with data/map_public.json; keyed status wording; deep link #lot=N
+js/i18n.js          EN lives in the markup; ES/RU come from i18n/*.json via data-i18n (text)
+                    and data-i18n-html (markup); ?lang=xx, localStorage; fires 'langchange'
+js/site.js          reveal on scroll, FAQ accordion, active nav link
+js/market.js        inline-SVG charts + tables; purchases per year shown from 2019
+i18n/es.json, i18n/ru.json   every key (JS-built strings have EN defaults inside the JS)
+data/lots.json      GeoJSON, 223 polygons, properties {lot}
+data/map_public.json  per lot: status, status_text, checked_on, area_m2, plano, relief,
+                    cover, borders_river, owner_is_company, price_range_usd; data_as_of
+data/stats_public.json, data/lots_public.json   public snapshot files
+images/             hero, day, place, house, solar, garden, kitchen (see pipeline note below)
+```
 
-Single-file `index.html` — all CSS and JS inline. No build step.
+Nav and footer are copied into every page — change all six files together.
+
+**Lot card rules (js/map.js).** Status key = `status` from map_public.json, with `special`
+split by lot number (18–24 → "one parcel with lot 17", 63–64 → "merged in 2007") and a
+per-lot override for 180 ("no entries on the parcel; owning company dissolved"). Lots that
+exist in the geometry but not in map_public.json (29, 51, 52, 55) show "no registry record in
+this snapshot". Lot 17 has no price range. Every card shows `checked_on` and the freshness
+line directly under the status. Company-owned lots get the company line. Three quiet links:
+method, talk to us (request?service=call), order a lot check (request?service=report).
+
+**Image pipeline.** Python PIL with `ImageOps.exif_transpose`, `thumbnail()` to a max box,
+JPEG quality 55–75, progressive. Wrappers use `overflow:hidden` + `object-fit:cover`.
 
 ---
 
 ## Live integrations
 
-**Tally** — `https://tally.so/r/aQ2b8W`
-- Embedded as iframe in the Stay in Touch section.
-- The form's intro/outro copy in Tally still uses the old gating language ("we follow up only when there is alignment") — needs to be rewritten in Tally's UI to match the new "briefing / open door" framing.
-- Any old redirect-to-Gumroad on submit should be removed (the flow is now reversed).
-
-**Gumroad — primary payment surface.** The $50 orientation product is live at `https://starkwave15.gumroad.com/l/che-orientation?wanted=true` — that URL is the `href` on the Reserve button in the `.day-booking-header`. The product's **customer receipt content** AND its **workflow email** both contain the Cal.com booking link (`https://cal.com/denis-stark/orientation`). Buyers see the link the instant they pay and again by email; we don't have to do anything between the payment and the buyer landing on Cal.com. Three follow-on products live in the same Gumroad account at gross list prices — extended video conversation $200, half-day $150, full day $250. After the orientation call, Denis emails the matching Gumroad product link plus a one-use **$50 coupon code** that drops the price to the post-credit amount the landing advertises ($150 / $100 / $200). The coupon is the credit mechanism — Gumroad list prices stay at $200 / $150 / $250 so the math holds.
-
-**Cal.com — scheduling only.** Public event-type URL: `https://cal.com/denis-stark/orientation`. Configured as a **free** event type (no payment app connected, **Requires Confirmation OFF**). The link is delivered to paid buyers exclusively through Gumroad's receipt/workflow email — it does **not** appear anywhere on the public landing page. Putting it on the landing would bypass the $50 gate, which is the whole point of the architecture.
-
-**History (so future-you doesn't redo this work).** We tried embedding Gumroad and Lemon Squeezy checkouts in a custom in-page iframe modal — abandoned because Gumroad's modern URLs don't reliably support overlay and LS's `?embed=1` flow trips on cross-site cookies. We tried Cal.com's native payment integration — PayPal blocks CR-merchant card checkout, HitPay doesn't support CR, Stripe requires US/EU residency, Polar.sh has no Cal.com integration. We considered Stripe Atlas (US LLC) and UAE Free Zone incorporation — deferred at current scale, plus Stripe Atlas has real banking-rejection risk on a Russian passport. The iframe-modal code (with all its quirks — LS `postMessage` event names, localhost `SameSite` cookie trap, `X-Frame-Options` fallback to `window.open()`) lives in git history at commit `ca9d2da` and prior; revive it only if a future product genuinely needs in-page checkout.
-
-**Risk / fallback.** Two things can break the buyer flow: the Gumroad checkout (single source of failure for payment) and the Cal.com URL inside the Gumroad receipt/workflow. If Gumroad goes down the Reserve button still degrades to a normal link — buyer sees Gumroad's error page rather than a broken modal. If the Cal.com link breaks (event type renamed, account suspended), buyers will pay and then find themselves stuck — monitor that the receipt email's link always points at a live Cal.com event. Easy mitigation: include a direct contact (Denis's email `hello@columbusheights.estate` and/or WhatsApp `+506 6304 2667`) inside the Gumroad receipt content as a "if the booking link doesn't work, reach out here" line. That contact appears only after payment — it doesn't sit on the public landing where it would undermine the $50 gate.
-
-**Operator workflow per booking.** Buyer pays on Gumroad → instantly sees the Cal.com booking link in the on-screen receipt and again by email → clicks it → picks a time → Cal.com auto-confirms and sends the Google Meet + calendar invite. Denis takes **no manual action** between the payment and the calendar invite landing in his synced calendar. For follow-on bookings (extended call, half-day, full day): after the orientation call, Denis emails the matching Gumroad product link plus the $50 coupon code; the same Gumroad → email → calendar auto-flow kicks in from there.
-
-**Contact (operator-side only, not on the public landing).** The only public way to reach us is the orientation booking ($50 → Cal.com) or the Tally form. The following details exist for use inside the Gumroad receipt content, in workflow emails, and in operator notes — never as a public-page button or mailto:
-- Email: `hello@columbusheights.estate`
-- WhatsApp: `+506 6304 2667` (was a floating button on the landing — removed because a direct one-click chat back-channel undermines the $50 orientation gate)
+- **Tally** — two forms: service request (`request.html`) and "disagree with the estimate"
+  (`disagree.html`). Both pages currently embed the OLD questionnaire `aQ2b8W` as a
+  placeholder; replace the IDs once the new forms exist. Hidden fields `lot` and `service`
+  must be created in the Tally editor; the official `embed.js` forwards the page's query
+  parameters into them, and the page also appends them to `data-tally-src`. The required
+  consent checkbox lives inside Tally.
+- **OpenStreetMap** tiles via Leaflet 1.9.4 (unpkg). **Google Fonts** (Cormorant Garamond, Inter).
+- No payment or scheduling integration. Gumroad products and the Cal.com event may still
+  exist in their accounts but are not linked from the site.
 
 ---
 
-## Open items / placeholders
+## Data pipeline (operator-side, outside the repository)
 
-**Photo slots** — all 7 wired up. Real images live in `images/` at the repo root:
-- `hero.jpg` — aerial road through fields, 1024×768 (source resolution; slightly soft on retina but the dark veil absorbs it)
-- `day.jpg` — glamping tent at dusk with fairy lights, 1200×1600
-- `place.jpg` — aerial of our lot with fruit-forest plot, 2000×1500, ~660KB at quality 55
-- `house.jpg` — family on porch of the white house through trees, 1067×1600
-- `solar.jpg` — rooftop panels + green lawn + mountains, 960×1280
-- `garden.jpg` — papaya tree from below against blue sky, 1200×1600
-- `kitchen.jpg` — rustic bread loaf with mountain view through window, 1200×1600
+Registry extracts, owner tables, internal flags, the comparable-sales dataset and HOA data
+live in a folder on Denis's Mac and are never committed (`.gitignore` guards the obvious
+names). Publishing a new snapshot = copy `map_public.json`, `stats_public.json`,
+`lots_public.json` into `data/`; `data_as_of` and per-lot `checked_on` travel with the files.
+Two known wrinkles: lot 180's wording is a frontend override until the pipeline emits a
+`status_key` field; `stats_public.json` has a key named `lots_with_fraud_prevention_note`
+(the site labels it "Preventive note") — rename it in the pipeline when convenient.
 
-**Family-photo rule update.** The original CLAUDE.md said "no family photo." We relaxed it: the House tile shows the family on the porch, and the Day tile has the family small inside the lit tent at dusk. Both were deliberate choices — the warmth pays off the "actually live the life" framing — but if you want to swap to no-faces alternates later, keep `IMG_2540.jpeg` (hills + road) as a hero/place backup and re-shoot the House from a faces-out angle.
+---
 
-**Image pipeline.** Python PIL with `ImageOps.exif_transpose` (bakes iPhone EXIF rotation into pixels — iPhone JPEGs are stored landscape with an orientation tag, and `sips` ignores the tag during resize), then `thumbnail()` to fit within a max-dim box, then `JPEG quality=55–75 optimize=True progressive=True`. CSS pattern: each photo wrapper (`.day-photo`, `.place-photo`, `.life-tile`) gets `overflow:hidden`, and its child `> img` gets `width:100%; height:100%; object-fit:cover` so the source aspect doesn't have to match the slot exactly. The old placeholder div pattern (`<div class="photo" data-label="...">` rendering a green gradient + dashed border) is still in the CSS and could be re-enabled for future sections.
+## Open items
 
-**Gumroad products.** The orientation ($50) is the only Gumroad URL on the landing — `https://starkwave15.gumroad.com/l/che-orientation?wanted=true`. Three follow-on products (extended video conversation, half-day, full day) live in the same account at gross prices ($200 / $150 / $250) and are emailed manually after the orientation call with a $50 coupon code attached. Suggested type for all four: regular Digital product (not Call) — Cal.com handles scheduling, Gumroad just collects money.
-
-**Prior Tally submissions** to follow up on personally:
-- `rachelvvg@yahoo.com` (Apr 20) — family of four planning relocation, perfect bullseye. Younger son on autistic spectrum, wants to be a farmer. Address the school question directly: Quebrada Amarilla (3 min, Spanish), Playa Hermosa (7 min, bilingual options), Journey School in Jacó (IB, all grades).
-- `slizauskasl@gmail.com` (Apr 19) — owns a lot, wants to sell. Asked for help selling on commission. Confirm lot location, asking price, timeline.
+- Create the two Tally forms; replace the placeholder IDs in `request.html` / `disagree.html`.
+- Git history still holds the contact names and phones removed from `data/lots.json` on
+  2026-11-25; rewriting history was not done.
+- Lots 29, 51, 52, 55 are on the map but absent from the snapshot — confirm in the pipeline.
+- Guesthouse price is "on request" until decided.
+- Lawyer: traffic-light wording and report disclaimers; accountant: receiving payment;
+  law 8968 privacy text before Stage 1 collects emails.
+- "No grid electricity" copy (FAQ, market page) — update only after ICE actually reconnects.
+- Optional satellite tile layer (check tile terms first).
+- Stage 1 on Cloudflare (planned, not started): Workers + static assets with Workers Builds,
+  D1 (users, login_tokens, sessions, owner_claims, service_requests, messages, comps,
+  listings), magic-link login, gated comparable sales, request notifications to Denis,
+  privacy page and deletion on request. Needs the domain on Cloudflare DNS; email to users
+  needs Workers Paid or Resend; notifications to our own verified address are free.
 
 ---
 
@@ -161,7 +189,7 @@ Single-file `index.html` — all CSS and JS inline. No build step.
 
 - Typography: Cormorant Garamond display serif paired with Inter for body. Italic + gold for emphasis words.
 - Palette tokens: `--forest`, `--forest-deep`, `--cream`, `--cream-soft`, `--clay`, `--gold`, `--gold-soft`.
-- First-person "we" voice throughout. **No names, no family photo** (user's choice — keep the family private until people actually book).
+- First-person "we" voice throughout. **No names on the site.** Photos of the house and the tent at dusk are fine; no close-up faces.
 - No exclamation marks. No "discover/explore/unlock" sales verbs. No emojis.
 - Em dashes are the user's natural style — preserve them.
 - If a change makes the page louder or more commercial, push back. The brief is warm and considered.
@@ -170,13 +198,16 @@ Single-file `index.html` — all CSS and JS inline. No build step.
 
 ## Workflow
 
-1. Edit `index.html` directly. Single file, no build step.
-2. Test locally: `python3 -m http.server 8000`, visit `http://localhost:8000`. (Serve over HTTP, not `file://`, so the Tally script runs with normal browser security. The page no longer embeds any payment or scheduling widget — Gumroad opens in a new tab, Cal.com is reached via the receipt email — so there's nothing payment-related to test locally.)
-3. Commit and push to `main`. GitHub Pages picks it up within ~1 minute.
+1. Edit the files directly. No build step.
+2. Test locally: `python3 -m http.server 8000` (launch config `static`), open `http://localhost:8000`.
+3. Text changes: English goes in the markup with a `data-i18n` / `data-i18n-html` key; add the
+   same key to `i18n/es.json` and `i18n/ru.json`. Strings built in JS have EN defaults in
+   `js/map.js` / `js/market.js` and the same keys in the dictionaries.
+4. Before pushing, grep HTML/JS/i18n for `disputed`, `fraud`, `stolen`, `demo`, phone numbers,
+   `gumroad`, `cal.com`, `whatsapp`, `mailto` — none should appear.
+5. Commit and push to `main`; GitHub Pages deploys within about a minute.
 
-External resources used:
-- Google Fonts (Cormorant Garamond + Inter)
-- Tally embed script (`https://tally.so/widgets/embed.js`, loaded on demand by the inline loader)
+External resources: Google Fonts, Leaflet + OpenStreetMap tiles, Tally embed script.
 
 ---
 
