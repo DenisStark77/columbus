@@ -1,1 +1,10 @@
 node_modules/
+
+# Never commit internal registry data or the handoff notes
+HANDOFF*.md
+*_internal*.json
+_CONFIDENCIAL*
+.env
+.env.*
+.dev.vars
+.claude/settings.local.json

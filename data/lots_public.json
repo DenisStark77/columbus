@@ -1,0 +1,1491 @@
+{
+ "as_of": "2026-11-24",
+ "source": "Registro Nacional de Costa Rica (rnpdigital.com), consultas gratuitas",
+ "note": "Lots 18-24 are not separate fincas: registered as one 5.7 ha finca together with lot 17. Lots 63-64 fincas were closed in 2007 (merged).",
+ "lots": [
+  {
+   "lot": 1,
+   "finca": "6-148775-000",
+   "area_m2": 5566.15,
+   "plano": "P-1101646-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 2,
+   "finca": "6-148776-000",
+   "area_m2": 5052.99,
+   "plano": "P-1101652-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 3,
+   "finca": "6-148777-000",
+   "area_m2": 5353.01,
+   "plano": "P-1102230-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 4,
+   "finca": "6-148778-000",
+   "area_m2": 5014.21,
+   "plano": "P-1102232-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 5,
+   "finca": "6-148779-000",
+   "area_m2": 5052.06,
+   "plano": "P-1101655-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 6,
+   "finca": "6-148780-000",
+   "area_m2": 5054.39,
+   "plano": "P-1101399-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 7,
+   "finca": "6-148781-000",
+   "area_m2": 5072.76,
+   "plano": "P-1102235-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 8,
+   "finca": "6-148782-000",
+   "area_m2": 5049.17,
+   "plano": "P-1101330-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 9,
+   "finca": "6-148783-000",
+   "area_m2": 5051.94,
+   "plano": "P-1102236-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 10,
+   "finca": "6-148784-000",
+   "area_m2": 5041.99,
+   "plano": "P-1101331-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 11,
+   "finca": "6-148785-000",
+   "area_m2": 5030.48,
+   "plano": "P-1102448-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 12,
+   "finca": "6-148786-000",
+   "area_m2": 5063.23,
+   "plano": "P-1101805-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 13,
+   "finca": "6-148787-000",
+   "area_m2": 5016.6,
+   "plano": "P-1102686-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 14,
+   "finca": "6-148788-000",
+   "area_m2": 5006.56,
+   "plano": "P-1102687-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 15,
+   "finca": "6-148789-000",
+   "area_m2": 5219.39,
+   "plano": "P-1102688-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 16,
+   "finca": "6-148790-000",
+   "area_m2": 5001.16,
+   "plano": "P-1101333-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 17,
+   "finca": "6-148791-000",
+   "area_m2": 56983.83,
+   "plano": "P-1104767-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 25,
+   "finca": "6-148792-000",
+   "area_m2": 5129.87,
+   "plano": "P-1102878-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 26,
+   "finca": "6-148793-000",
+   "area_m2": 5165.7,
+   "plano": "P-1101859-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 27,
+   "finca": "6-148796-000",
+   "area_m2": 8717.58,
+   "plano": "P-1102862-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 28,
+   "finca": "6-148797-000",
+   "area_m2": 6563.86,
+   "plano": "P-1102863-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 30,
+   "finca": "6-148798-000",
+   "area_m2": 5787.71,
+   "plano": "P-1102876-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 31,
+   "finca": "6-148799-000",
+   "area_m2": 5006.26,
+   "plano": "P-1102875-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 32,
+   "finca": "6-148800-000",
+   "area_m2": 5159.75,
+   "plano": "P-1102874-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 33,
+   "finca": "6-148801-000",
+   "area_m2": 5098.88,
+   "plano": "P-1102873-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 34,
+   "finca": "6-148802-000",
+   "area_m2": 5062.17,
+   "plano": "P-1102871-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 35,
+   "finca": "6-148803-000",
+   "area_m2": 5077.19,
+   "plano": "P-1102869-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 36,
+   "finca": "6-148804-000",
+   "area_m2": 5218.24,
+   "plano": "P-1102879-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 37,
+   "finca": "6-148805-000",
+   "area_m2": 5045.42,
+   "plano": "P-1102877-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 38,
+   "finca": "6-148806-000",
+   "area_m2": 5096.13,
+   "plano": "P-1101860-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 39,
+   "finca": "6-148807-000",
+   "area_m2": 5258.78,
+   "plano": "P-1101396-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 40,
+   "finca": "6-148808-000",
+   "area_m2": 5822.2,
+   "plano": "P-1101397-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 41,
+   "finca": "6-148809-000",
+   "area_m2": 9361.83,
+   "plano": "P-1103628-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 42,
+   "finca": "6-148810-000",
+   "area_m2": 5516.63,
+   "plano": "P-1101332-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 43,
+   "finca": "6-148811-000",
+   "area_m2": 5639.44,
+   "plano": "P-1101334-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 44,
+   "finca": "6-148812-000",
+   "area_m2": 5856.84,
+   "plano": "P-1101335-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 45,
+   "finca": "6-148813-000",
+   "area_m2": 7225.96,
+   "plano": "P-1101391-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 46,
+   "finca": "6-148814-000",
+   "area_m2": 7759.14,
+   "plano": "P-1101394-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 47,
+   "finca": "6-148815-000",
+   "area_m2": 5608.63,
+   "plano": "P-1102348-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 48,
+   "finca": "6-148816-000",
+   "area_m2": 5399.03,
+   "plano": "P-1102351-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 49,
+   "finca": "6-148817-000",
+   "area_m2": 5228.14,
+   "plano": "P-1102392-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 50,
+   "finca": "6-148818-000",
+   "area_m2": 5117.95,
+   "plano": "P-1101390-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 53,
+   "finca": "6-148819-000",
+   "area_m2": 8520.45,
+   "plano": "P-1104763-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 54,
+   "finca": "6-148820-000",
+   "area_m2": 5029.63,
+   "plano": "P-1102391-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 56,
+   "finca": "6-148821-000",
+   "area_m2": 5112.29,
+   "plano": "P-1102390-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 57,
+   "finca": "6-148822-000",
+   "area_m2": 5197.24,
+   "plano": "P-1102388-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 58,
+   "finca": "6-148823-000",
+   "area_m2": 5047.34,
+   "plano": "P-1102760-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 59,
+   "finca": "6-148825-000",
+   "area_m2": 5011.53,
+   "plano": "P-1102761-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 60,
+   "finca": "6-148826-000",
+   "area_m2": 4178.5,
+   "plano": "P-1102762-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 61,
+   "finca": "6-148827-000",
+   "area_m2": 3199.9,
+   "plano": "P-1215844-2008",
+   "closed_finca": false
+  },
+  {
+   "lot": 62,
+   "finca": "6-148828-000",
+   "area_m2": 2036.44,
+   "plano": "P-1102389-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 63,
+   "finca": "6-148829-000",
+   "area_m2": null,
+   "plano": "",
+   "closed_finca": true
+  },
+  {
+   "lot": 64,
+   "finca": "6-148830-000",
+   "area_m2": null,
+   "plano": "",
+   "closed_finca": true
+  },
+  {
+   "lot": 65,
+   "finca": "6-148831-000",
+   "area_m2": 4492.78,
+   "plano": "P-1102757-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 66,
+   "finca": "6-148832-000",
+   "area_m2": 5184.0,
+   "plano": "P-1101948-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 67,
+   "finca": "6-148833-000",
+   "area_m2": 6702.81,
+   "plano": "P-1101949-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 68,
+   "finca": "6-148834-000",
+   "area_m2": 5030.1,
+   "plano": "P-1101954-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 69,
+   "finca": "6-148835-000",
+   "area_m2": 5058.4,
+   "plano": "P-1101947-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 70,
+   "finca": "6-148836-000",
+   "area_m2": 5053.89,
+   "plano": "P-1101953-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 71,
+   "finca": "6-148837-000",
+   "area_m2": 5082.5,
+   "plano": "P-1101952-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 72,
+   "finca": "6-148838-000",
+   "area_m2": 5084.11,
+   "plano": "P-1101950-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 73,
+   "finca": "6-148839-000",
+   "area_m2": 5042.84,
+   "plano": "P-1102096-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 74,
+   "finca": "6-148840-000",
+   "area_m2": 5074.11,
+   "plano": "P-1102098-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 75,
+   "finca": "6-148841-000",
+   "area_m2": 5039.71,
+   "plano": "P-1101358-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 76,
+   "finca": "6-148842-000",
+   "area_m2": 5028.24,
+   "plano": "P-1102097-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 77,
+   "finca": "6-148843-000",
+   "area_m2": 5043.36,
+   "plano": "P-1102099-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 78,
+   "finca": "6-148844-000",
+   "area_m2": 5037.25,
+   "plano": "P-1102100-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 79,
+   "finca": "6-148845-000",
+   "area_m2": 5044.15,
+   "plano": "P-1102101-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 80,
+   "finca": "6-148846-000",
+   "area_m2": 5089.69,
+   "plano": "P-1101357-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 81,
+   "finca": "6-148847-000",
+   "area_m2": 5081.38,
+   "plano": "P-1101995-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 82,
+   "finca": "6-148848-000",
+   "area_m2": 5069.68,
+   "plano": "P-1101998-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 83,
+   "finca": "6-148849-000",
+   "area_m2": 5968.59,
+   "plano": "P-1102093-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 84,
+   "finca": "6-148850-000",
+   "area_m2": 6634.7,
+   "plano": "P-1102095-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 85,
+   "finca": "6-148851-000",
+   "area_m2": 7376.33,
+   "plano": "P-1102094-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 86,
+   "finca": "6-148852-000",
+   "area_m2": 6138.51,
+   "plano": "P-1101946-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 87,
+   "finca": "6-148853-000",
+   "area_m2": 5390.21,
+   "plano": "P-1101945-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 88,
+   "finca": "6-148854-000",
+   "area_m2": 5149.83,
+   "plano": "P-1101956-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 89,
+   "finca": "6-148855-000",
+   "area_m2": 5075.67,
+   "plano": "P-1101957-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 90,
+   "finca": "6-148856-000",
+   "area_m2": 5115.82,
+   "plano": "P-1101958-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 91,
+   "finca": "6-148857-000",
+   "area_m2": 5099.4,
+   "plano": "P-1101960-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 92,
+   "finca": "6-148858-000",
+   "area_m2": 5119.16,
+   "plano": "P-1101445-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 93,
+   "finca": "6-148859-000",
+   "area_m2": 5155.11,
+   "plano": "P-1101446-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 94,
+   "finca": "6-148860-000",
+   "area_m2": 5206.43,
+   "plano": "P-1101450-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 95,
+   "finca": "6-148861-000",
+   "area_m2": 5164.04,
+   "plano": "P-1101452-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 96,
+   "finca": "6-148862-000",
+   "area_m2": 5153.72,
+   "plano": "P-1101455-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 97,
+   "finca": "6-148863-000",
+   "area_m2": 5242.31,
+   "plano": "P-1101464-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 98,
+   "finca": "6-148864-000",
+   "area_m2": 9124.96,
+   "plano": "P-1101756-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 99,
+   "finca": "6-148865-000",
+   "area_m2": 9171.04,
+   "plano": "P-1101657-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 100,
+   "finca": "6-148866-000",
+   "area_m2": 5033.09,
+   "plano": "P-1101656-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 101,
+   "finca": "6-148867-000",
+   "area_m2": 5055.89,
+   "plano": "P-1101540-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 102,
+   "finca": "6-148868-000",
+   "area_m2": 5034.92,
+   "plano": "P-1101539-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 104,
+   "finca": "6-148869-000",
+   "area_m2": 5128.12,
+   "plano": "P-1101542-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 106,
+   "finca": "6-148870-000",
+   "area_m2": 5069.6,
+   "plano": "P-1101541-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 107,
+   "finca": "6-148871-000",
+   "area_m2": 5509.11,
+   "plano": "P-1101363-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 108,
+   "finca": "6-148872-000",
+   "area_m2": 5070.83,
+   "plano": "P-1101543-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 109,
+   "finca": "6-148873-000",
+   "area_m2": 5137.35,
+   "plano": "P-1101538-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 110,
+   "finca": "6-148874-000",
+   "area_m2": 5093.15,
+   "plano": "P-1101658-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 111,
+   "finca": "6-148875-000",
+   "area_m2": 5236.94,
+   "plano": "P-1101359-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 112,
+   "finca": "6-148876-000",
+   "area_m2": 5282.3,
+   "plano": "P-1101463-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 113,
+   "finca": "6-148877-000",
+   "area_m2": 5133.44,
+   "plano": "P-1101461-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 114,
+   "finca": "6-148878-000",
+   "area_m2": 5147.27,
+   "plano": "P-1101458-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 115,
+   "finca": "6-148879-000",
+   "area_m2": 5126.64,
+   "plano": "P-1101654-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 116,
+   "finca": "6-148880-000",
+   "area_m2": 5075.48,
+   "plano": "P-1101362-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 117,
+   "finca": "6-148881-000",
+   "area_m2": 5095.62,
+   "plano": "P-1101361-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 118,
+   "finca": "6-148882-000",
+   "area_m2": 5091.32,
+   "plano": "P-1101360-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 119,
+   "finca": "6-148883-000",
+   "area_m2": 5089.65,
+   "plano": "P-1102764-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 120,
+   "finca": "6-148884-000",
+   "area_m2": 5016.18,
+   "plano": "P-1101610-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 121,
+   "finca": "6-148885-000",
+   "area_m2": 5025.27,
+   "plano": "P-1101611-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 122,
+   "finca": "6-148886-000",
+   "area_m2": 5008.51,
+   "plano": "P-1101993-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 123,
+   "finca": "6-148887-000",
+   "area_m2": 5096.76,
+   "plano": "P-1102765-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 124,
+   "finca": "6-148888-000",
+   "area_m2": 5352.9,
+   "plano": "P-1102768-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 125,
+   "finca": "6-148889-000",
+   "area_m2": 5044.57,
+   "plano": "P-1102769-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 126,
+   "finca": "6-148890-000",
+   "area_m2": 5051.01,
+   "plano": "P-1102770-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 127,
+   "finca": "6-148891-000",
+   "area_m2": 5083.46,
+   "plano": "P-1102771-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 128,
+   "finca": "6-148892-000",
+   "area_m2": 5125.52,
+   "plano": "P-1102772-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 129,
+   "finca": "6-148893-000",
+   "area_m2": 5376.58,
+   "plano": "P-1102393-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 130,
+   "finca": "6-148894-000",
+   "area_m2": 5717.0,
+   "plano": "P-1102384-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 131,
+   "finca": "6-148895-000",
+   "area_m2": 5473.86,
+   "plano": "P-1101992-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 132,
+   "finca": "6-148896-000",
+   "area_m2": 5018.37,
+   "plano": "P-1102383-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 133,
+   "finca": "6-148897-000",
+   "area_m2": 5109.43,
+   "plano": "P-1102382-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 134,
+   "finca": "6-148898-000",
+   "area_m2": 5022.37,
+   "plano": "P-1102381-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 135,
+   "finca": "6-148899-000",
+   "area_m2": 5054.39,
+   "plano": "P-1102380-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 136,
+   "finca": "6-148900-000",
+   "area_m2": 5056.4,
+   "plano": "P-1101336-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 137,
+   "finca": "6-148901-000",
+   "area_m2": 5057.82,
+   "plano": "P-1101994-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 138,
+   "finca": "6-148902-000",
+   "area_m2": 5098.8,
+   "plano": "P-1101997-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 139,
+   "finca": "6-148903-000",
+   "area_m2": 5325.77,
+   "plano": "P-1102138-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 140,
+   "finca": "6-148904-000",
+   "area_m2": 5082.87,
+   "plano": "P-1102137-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 141,
+   "finca": "6-148905-000",
+   "area_m2": 5084.13,
+   "plano": "P-1102136-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 142,
+   "finca": "6-148906-000",
+   "area_m2": 5092.6,
+   "plano": "P-1102135-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 143,
+   "finca": "6-148907-000",
+   "area_m2": 5099.69,
+   "plano": "P-1101955-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 144,
+   "finca": "6-148908-000",
+   "area_m2": 5071.5,
+   "plano": "P-1101609-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 145,
+   "finca": "6-148909-000",
+   "area_m2": 5041.67,
+   "plano": "P-1101453-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 146,
+   "finca": "6-148910-000",
+   "area_m2": 5136.62,
+   "plano": "P-1101448-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 147,
+   "finca": "6-148911-000",
+   "area_m2": 5078.07,
+   "plano": "P-1101961-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 148,
+   "finca": "6-148912-000",
+   "area_m2": 5071.99,
+   "plano": "P-1101959-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 149,
+   "finca": "6-148913-000",
+   "area_m2": 5080.05,
+   "plano": "P-1101996-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 150,
+   "finca": "6-148914-000",
+   "area_m2": 5129.18,
+   "plano": "P-1101808-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 151,
+   "finca": "6-148915-000",
+   "area_m2": 5058.7,
+   "plano": "P-1101459-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 152,
+   "finca": "6-148916-000",
+   "area_m2": 5017.61,
+   "plano": "P-1102766-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 153,
+   "finca": "6-148917-000",
+   "area_m2": 5051.23,
+   "plano": "P-1102767-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 154,
+   "finca": "6-148918-000",
+   "area_m2": 5026.5,
+   "plano": "P-1102387-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 155,
+   "finca": "6-148919-000",
+   "area_m2": 5127.17,
+   "plano": "P-1102386-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 156,
+   "finca": "6-148920-000",
+   "area_m2": 5033.32,
+   "plano": "P-1102385-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 157,
+   "finca": "6-148921-000",
+   "area_m2": 5060.3,
+   "plano": "P-1101337-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 158,
+   "finca": "6-148922-000",
+   "area_m2": 5063.3,
+   "plano": "P-1101661-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 159,
+   "finca": "6-148923-000",
+   "area_m2": 5008.45,
+   "plano": "P-1101664-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 160,
+   "finca": "6-148924-000",
+   "area_m2": 5060.3,
+   "plano": "P-1101665-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 161,
+   "finca": "6-148925-000",
+   "area_m2": 5060.3,
+   "plano": "P-1101904-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 162,
+   "finca": "6-148926-000",
+   "area_m2": 5060.3,
+   "plano": "P-1101549-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 163,
+   "finca": "6-148927-000",
+   "area_m2": 5314.53,
+   "plano": "P-1101551-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 164,
+   "finca": "6-148928-000",
+   "area_m2": 5021.83,
+   "plano": "P-1101554-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 165,
+   "finca": "6-148929-000",
+   "area_m2": 5083.05,
+   "plano": "P-1101468-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 166,
+   "finca": "6-148930-000",
+   "area_m2": 5033.98,
+   "plano": "P-1101472-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 167,
+   "finca": "6-148931-000",
+   "area_m2": 5035.14,
+   "plano": "P-1101338-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 168,
+   "finca": "6-148932-000",
+   "area_m2": 5035.14,
+   "plano": "P-1101666-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 169,
+   "finca": "6-148933-000",
+   "area_m2": 5065.67,
+   "plano": "P-1101667-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 170,
+   "finca": "6-148934-000",
+   "area_m2": 5050.18,
+   "plano": "P-1101710-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 171,
+   "finca": "6-148935-000",
+   "area_m2": 5048.38,
+   "plano": "P-1101548-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 172,
+   "finca": "6-148936-000",
+   "area_m2": 5009.01,
+   "plano": "P-1101550-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 173,
+   "finca": "6-148937-000",
+   "area_m2": 5032.21,
+   "plano": "P-1101552-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 174,
+   "finca": "6-148938-000",
+   "area_m2": 5056.92,
+   "plano": "P-1101553-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 175,
+   "finca": "6-148939-000",
+   "area_m2": 5034.3,
+   "plano": "P-1101555-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 176,
+   "finca": "6-148940-000",
+   "area_m2": 5054.08,
+   "plano": "P-1101466-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 177,
+   "finca": "6-148941-000",
+   "area_m2": 5051.23,
+   "plano": "P-1101848-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 178,
+   "finca": "6-148942-000",
+   "area_m2": 5332.39,
+   "plano": "P-1101470-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 179,
+   "finca": "6-148943-000",
+   "area_m2": 5859.79,
+   "plano": "P-1101474-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 180,
+   "finca": "6-148944-000",
+   "area_m2": 5365.03,
+   "plano": "P-1101475-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 181,
+   "finca": "6-148945-000",
+   "area_m2": 6280.96,
+   "plano": "P-1101476-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 182,
+   "finca": "6-148946-000",
+   "area_m2": 5065.62,
+   "plano": "P-1101477-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 183,
+   "finca": "6-148947-000",
+   "area_m2": 5076.54,
+   "plano": "P-1101545-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 184,
+   "finca": "6-148948-000",
+   "area_m2": 5083.02,
+   "plano": "P-1101999-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 185,
+   "finca": "6-148949-000",
+   "area_m2": 5153.93,
+   "plano": "P-1102134-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 186,
+   "finca": "6-148950-000",
+   "area_m2": 5031.73,
+   "plano": "P-1101685-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 187,
+   "finca": "6-148951-000",
+   "area_m2": 5016.41,
+   "plano": "P-1101460-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 188,
+   "finca": "6-148952-000",
+   "area_m2": 5342.83,
+   "plano": "P-1101457-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 189,
+   "finca": "6-148953-000",
+   "area_m2": 5072.98,
+   "plano": "P-1101454-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 190,
+   "finca": "6-148954-000",
+   "area_m2": 5126.27,
+   "plano": "P-1101764-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 191,
+   "finca": "6-148955-000",
+   "area_m2": 5069.26,
+   "plano": "P-1101546-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 192,
+   "finca": "6-148956-000",
+   "area_m2": 5070.35,
+   "plano": "P-1101544-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 193,
+   "finca": "6-148957-000",
+   "area_m2": 5074.74,
+   "plano": "P-1101660-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 194,
+   "finca": "6-148958-000",
+   "area_m2": 5084.91,
+   "plano": "P-1101471-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 195,
+   "finca": "6-148959-000",
+   "area_m2": 5062.74,
+   "plano": "P-1101469-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 196,
+   "finca": "6-148960-000",
+   "area_m2": 5102.1,
+   "plano": "P-1102520-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 197,
+   "finca": "6-148961-000",
+   "area_m2": 5053.33,
+   "plano": "P-1102518-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 198,
+   "finca": "6-148962-000",
+   "area_m2": 5133.42,
+   "plano": "P-1101763-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 199,
+   "finca": "6-148963-000",
+   "area_m2": 5048.3,
+   "plano": "P-1101762-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 200,
+   "finca": "6-148964-000",
+   "area_m2": 5083.51,
+   "plano": "P-1101681-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 201,
+   "finca": "6-148965-000",
+   "area_m2": 5052.37,
+   "plano": "P-1101612-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 202,
+   "finca": "6-148966-000",
+   "area_m2": 5075.75,
+   "plano": "P-1101614-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 203,
+   "finca": "6-148967-000",
+   "area_m2": 5065.03,
+   "plano": "P-1101616-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 204,
+   "finca": "6-148968-000",
+   "area_m2": 5051.51,
+   "plano": "P-1101617-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 205,
+   "finca": "6-148969-000",
+   "area_m2": 5051.51,
+   "plano": "P-1102516-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 206,
+   "finca": "6-148970-000",
+   "area_m2": 5060.05,
+   "plano": "P-1101757-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 207,
+   "finca": "6-148971-000",
+   "area_m2": 5127.99,
+   "plano": "P-1101758-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 208,
+   "finca": "6-148972-000",
+   "area_m2": 5034.15,
+   "plano": "P-1101456-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 209,
+   "finca": "6-148973-000",
+   "area_m2": 5017.95,
+   "plano": "P-1101462-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 210,
+   "finca": "6-148974-000",
+   "area_m2": 5036.55,
+   "plano": "P-1102133-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 211,
+   "finca": "6-148975-000",
+   "area_m2": 6231.77,
+   "plano": "P-1101759-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 212,
+   "finca": "6-148976-000",
+   "area_m2": 5703.73,
+   "plano": "P-1101683-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 213,
+   "finca": "6-148977-000",
+   "area_m2": 5049.1,
+   "plano": "P-1101760-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 214,
+   "finca": "6-148978-000",
+   "area_m2": 5054.27,
+   "plano": "P-1101761-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 215,
+   "finca": "6-148979-000",
+   "area_m2": 5033.19,
+   "plano": "P-1101613-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 216,
+   "finca": "6-148980-000",
+   "area_m2": 5040.68,
+   "plano": "P-1102517-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 217,
+   "finca": "6-148981-000",
+   "area_m2": 5037.68,
+   "plano": "P-1101467-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 218,
+   "finca": "6-148982-000",
+   "area_m2": 5038.92,
+   "plano": "P-1101663-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 219,
+   "finca": "6-148983-000",
+   "area_m2": 5060.97,
+   "plano": "P-1101659-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 220,
+   "finca": "6-148984-000",
+   "area_m2": 5040.92,
+   "plano": "P-1103234-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 221,
+   "finca": "6-148985-000",
+   "area_m2": 5063.02,
+   "plano": "P-1102519-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 222,
+   "finca": "6-148986-000",
+   "area_m2": 5727.17,
+   "plano": "P-1101615-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 223,
+   "finca": "6-148987-000",
+   "area_m2": 5058.66,
+   "plano": "P-1103101-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 224,
+   "finca": "6-148988-000",
+   "area_m2": 5688.3,
+   "plano": "P-1101662-2006",
+   "closed_finca": false
+  },
+  {
+   "lot": 225,
+   "finca": "6-148992-000",
+   "area_m2": 5146.78,
+   "plano": "P-1101473-2006",
+   "closed_finca": false
+  }
+ ]
+}

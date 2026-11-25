@@ -1,0 +1,183 @@
+{
+ "as_of": "2026-11-24",
+ "source": "Registro Nacional de Costa Rica, public registry extracts for 212 fincas",
+ "method_notes": [
+  "Prices are the \"estimacion o precio\" declared in the deed; they can understate the real price.",
+  "USD price stats use only current-owner acquisitions by purchase (COMPRA) declared in USD; one data point per lot (earlier resales of the same lot are not in the data).",
+  "About half of purchases are declared in colones at or near cadastral value (~CRC 5-5.4M); these are excluded from price stats as non-informative.",
+  "Sales per year = COMPRAVENTA acts in registry history of the 212 fincas, excluding the 2006 original subdivision sale."
+ ],
+ "totals": {
+  "fincas": 212,
+  "lots_numbered_up_to": 225,
+  "total_area_ha": 115.9,
+  "median_lot_m2": 5075.575,
+  "lots_5000_to_6000_m2": 191,
+  "lots_over_7000_m2": 9,
+  "lots_under_5000_m2": 4
+ },
+ "sales_per_year": [
+  {
+   "year": 2008,
+   "compraventas": 1,
+   "other_transfers": 0
+  },
+  {
+   "year": 2011,
+   "compraventas": 2,
+   "other_transfers": 1
+  },
+  {
+   "year": 2012,
+   "compraventas": 7,
+   "other_transfers": 0
+  },
+  {
+   "year": 2013,
+   "compraventas": 2,
+   "other_transfers": 4
+  },
+  {
+   "year": 2014,
+   "compraventas": 3,
+   "other_transfers": 2
+  },
+  {
+   "year": 2015,
+   "compraventas": 3,
+   "other_transfers": 0
+  },
+  {
+   "year": 2016,
+   "compraventas": 7,
+   "other_transfers": 1
+  },
+  {
+   "year": 2017,
+   "compraventas": 1,
+   "other_transfers": 0
+  },
+  {
+   "year": 2018,
+   "compraventas": 3,
+   "other_transfers": 2
+  },
+  {
+   "year": 2019,
+   "compraventas": 77,
+   "other_transfers": 10
+  },
+  {
+   "year": 2020,
+   "compraventas": 42,
+   "other_transfers": 15
+  },
+  {
+   "year": 2021,
+   "compraventas": 40,
+   "other_transfers": 2
+  },
+  {
+   "year": 2022,
+   "compraventas": 24,
+   "other_transfers": 7
+  },
+  {
+   "year": 2023,
+   "compraventas": 38,
+   "other_transfers": 4
+  },
+  {
+   "year": 2024,
+   "compraventas": 25,
+   "other_transfers": 3
+  },
+  {
+   "year": 2025,
+   "compraventas": 10,
+   "other_transfers": 3
+  },
+  {
+   "year": 2026,
+   "compraventas": 4,
+   "other_transfers": 3
+  }
+ ],
+ "usd_purchase_prices_by_year": [
+  {
+   "year": 2021,
+   "n": 7,
+   "median_usd": 26000.0,
+   "min_usd": 10000.0,
+   "max_usd": 41000.0
+  },
+  {
+   "year": 2022,
+   "n": 6,
+   "median_usd": 36500.0,
+   "min_usd": 10250.0,
+   "max_usd": 45000.0
+  },
+  {
+   "year": 2023,
+   "n": 9,
+   "median_usd": 43000.0,
+   "min_usd": 3000.0,
+   "max_usd": 70000.0
+  },
+  {
+   "year": 2024,
+   "n": 16,
+   "median_usd": 59000.0,
+   "min_usd": 20000.0,
+   "max_usd": 80000.0
+  },
+  {
+   "year": 2025,
+   "n": 3,
+   "median_usd": 59000.0,
+   "min_usd": 40000.0,
+   "max_usd": 67000.0
+  },
+  {
+   "year": 2026,
+   "n": 3,
+   "median_usd": 70000.0,
+   "min_usd": 50000.0,
+   "max_usd": 73000.0
+  }
+ ],
+ "usd_purchase_prices_2021_2026": {
+  "n": 44,
+  "median_usd": 42750.0,
+  "q1_usd": 35000.0,
+  "q3_usd": 63750.0,
+  "min_usd": 3000.0,
+  "max_usd": 80000.0
+ },
+ "ownership": {
+  "still_in_original_2006_company": 53,
+  "owner_type_counts": {
+   "fisica_cr": 61,
+   "extranjero": 23,
+   "juridica": 120,
+   "unknown": 2,
+   "mixto": 6
+  }
+ },
+ "registry_status_summary": {
+  "lots_without_any_flag": 144,
+  "lots_with_mortgage_or_tax_lien": 55,
+  "lots_in_foreclosure_proceedings": 10,
+  "lots_with_fraud_prevention_note": 10,
+  "lots_frozen_by_court": 2
+ },
+ "context_events": [
+  {
+   "from": "2024-11",
+   "to": "ongoing as of 2026-11",
+   "event": "Grid electricity to the community disconnected (per Denis). As of Nov 2026 an agreement with ICE is paid and works are under way (transformers, street lights); reconnection not yet done.",
+   "effect_on_data": "Registry shows 25 sales in 2024, 10 in 2025, 4 in 2026 (to 24 Nov). Annotate charts for 2025-2026 with this period."
+  }
+ ]
+}
