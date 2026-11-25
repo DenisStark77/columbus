@@ -210,6 +210,8 @@
     if (!document.getElementById('map') || !cardEl) return;
 
     map = L.map('map', { center: CENTER, zoom: 16, minZoom: 14, maxZoom: 19, scrollWheelZoom: false });
+    /* OSM tiles require the credit; the Leaflet prefix is dropped and the credit is styled small in css/site.css */
+    map.attributionControl.setPrefix(false);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -217,6 +219,12 @@
     map.on('click', function () { /* keep selection; clicks on water/roads do nothing */ });
 
     renderEmpty();
+    /* registered before the data arrives: the dictionary may load first */
+    document.addEventListener('langchange', function () {
+      renderLegend();
+      Object.keys(layers).forEach(function (n) { layers[n].setTooltipContent(t('card.lot', { n: n })); });
+      if (selected) renderCard(selected.feature.properties.lot); else renderEmpty();
+    });
 
     Promise.all([
       fetch('data/lots.json').then(function (r) { return r.json(); }),
@@ -231,6 +239,8 @@
         onEachFeature: function (feature, layer) {
           var lot = feature.properties.lot;
           layers[lot] = layer;
+          /* hover label: at low zoom the lots are too small for the number labels */
+          layer.bindTooltip(t('card.lot', { n: lot }), { sticky: true, direction: 'top', offset: [0, -6], className: 'lot-tip', opacity: 1 });
           layer.on({
             mouseover: function () { if (layer !== selected) layer.setStyle({ weight: 2.2, fillOpacity: .7 }); },
             mouseout: function () { if (layer !== selected) layer.setStyle(baseStyle(feature)); },
@@ -241,6 +251,7 @@
       map.fitBounds(gj.getBounds(), { padding: [10, 10] });
       addLabels(geo);
       renderLegend();
+      renderEmpty();
 
       var fromHash = lotFromHash();
       if (fromHash && layers[fromHash]) select(fromHash, { pan: true });
@@ -252,10 +263,6 @@
       cardEl.addEventListener('click', function (e) {
         var a = e.target.closest('a[data-lot]');
         if (a) { e.preventDefault(); select(parseInt(a.getAttribute('data-lot'), 10), { pan: true }); }
-      });
-      document.addEventListener('langchange', function () {
-        renderLegend();
-        if (selected) renderCard(selected.feature.properties.lot); else renderEmpty();
       });
     }).catch(function (err) {
       console.error('Map data failed to load', err);

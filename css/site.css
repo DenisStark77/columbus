@@ -84,6 +84,13 @@ section{padding:5.5rem 2rem;position:relative}
 .map-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(320px,1fr);gap:2rem;align-items:start}
 #map{height:620px;border-radius:3px;border:1px solid var(--line);background:#e9e4d8;z-index:1}
 .leaflet-container{font-family:'Inter',sans-serif}
+.leaflet-container .leaflet-control-attribution{font-size:.6rem;color:var(--muted);background:rgba(250,246,238,.75);padding:.1rem .4rem}
+.leaflet-container .leaflet-control-attribution a{color:var(--muted)}
+.leaflet-tooltip.lot-tip{
+  background:var(--forest-deep);color:#fff;border:0;border-radius:3px;
+  font-size:.76rem;font-weight:500;padding:.2rem .5rem;box-shadow:0 4px 12px -4px rgba(0,0,0,.4);
+}
+.leaflet-tooltip.lot-tip::before{display:none}
 .map-legend{display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;margin-top:.9rem;font-size:.78rem;color:var(--muted);align-items:center}
 .legend-item{display:inline-flex;align-items:center;gap:.45rem}
 .legend-swatch{width:12px;height:12px;border-radius:2px;border:1px solid rgba(0,0,0,.12)}
