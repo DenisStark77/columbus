@@ -6,24 +6,92 @@ Single-page landing site for an owner-built, off-grid community in the hills abo
 
 ## Strategic decisions (don't re-litigate without good reason)
 
-**Two audiences, two paths.** Newcomers go through "A Day at Columbus Heights" (paid). Owners go through the "For Owners" section (Selling, Maintenance, Fruit Forest, Build/Relocate).
+**Positioning.** An independent map and registry check of Columbus Heights lots,
+made by people who live here. For buyers who have heard stories about problem
+lots and want facts; for owners who want to know what their lot is worth.
+Not a digital service, not a listings board, not the HOA.
 
-**Single entry point: the 15-minute orientation call.** Every prospect starts with the same paid conversation — $50, paid on Gumroad, scheduled on Cal.com. There is no choose-your-own-adventure pricing menu on the page. The four possible outcomes are listed transparently below the orientation pitch but are **not** purchasable from the landing — they're decided collaboratively on the call, and the payment link is sent by email afterwards. **The prices shown on the site are post-credit:** extended video conversation $150, half-day visit $100, full day with a meal $200, or "sometimes nothing more — and that's fine too" at no further cost. The Gumroad products themselves are listed at $200 / $150 / $250 respectively; the $50 difference is applied via a one-use **coupon code** Denis sends after each orientation call, so the buyer pays exactly the post-credit amount on Gumroad. Showing both numbers on the page (e.g. "+$150 · $200 total") confused readers — single price wins. Tally is now purely the **open door** for owners, sellers, and other unforeseen cases — not a post-purchase briefing.
+**Entry point: the map.** The home page is a clickable lot map. Every lot shows,
+without registration: registry status on a given date (traffic light), a price
+range from five comparable closed sales, area, plano number, relief, cover.
+Three tiers:
+1. Map — free, no registration.
+2. Registration — email, name, explicit consent to be contacted, optional
+   "I own lot(s) #…". Unlocks the five comparable sales (without lot numbers)
+   and the methodology.
+3. Service request — lot report (~$200), orientation call ($50), visit
+   (half day / full day), guesthouse stay, listing a lot. A request creates a
+   record and an email to Denis; he answers personally.
 
-**Why this shape over the old three-tier menu.** The previous menu (Video $200 / Half $150 / Full $250) forced people to pre-commit to a format before they had enough information to choose well. The orientation call moves the decision later, when both sides have context. It also collapses three checkouts into a single Reserve button, which is simpler to operate.
+**Two audiences, one door.** Newcomers and lot owners both enter through the
+map. Owners go "value my lot" → register → request a listing or a report.
+Newcomers go map → register → call → visit → report → deal with their own
+lawyer. Every step is optional; no pressure.
 
-**Payment architecture: Gumroad-led, manually bridged to Cal.com.** Gumroad collects payment for the orientation (and for all follow-ons); Cal.com handles scheduling but never appears on the landing. The bridge between them is Gumroad's customized **receipt content** and **workflow email** — both contain the Cal.com booking URL. The landing itself has zero scheduling UI: a single Reserve button → Gumroad checkout in a new tab → buyer reads their email → clicks the Cal.com link → picks a time → Cal.com auto-confirms and sends the Google Meet + calendar invite. We arrived here after a fairly long path:
+**The buyer ladder (section "How it works").** Map → registration → 15-minute
+orientation call ($50, credited toward later services) → visit (half or full
+day, optional guesthouse) → lot report before making an offer → deal with the
+buyer's lawyer; we accompany and introduce neighbours.
 
-- We tried embedding Gumroad in an in-page overlay/iframe modal (Lemon Squeezy too). Abandoned — Gumroad's modern URL formats don't reliably support overlay, and Lemon Squeezy's `?embed=1` flow trips on cross-site cookies in many real-world setups.
-- We tried Cal.com's native payment integration. Abandoned — PayPal blocks Costa-Rica-merchant card checkout, HitPay doesn't support CR, Stripe requires US/EU residency, and Polar.sh has no Cal.com integration.
-- We considered Stripe Atlas (US LLC) and UAE Free Zone incorporation. Deferred — overkill at current scale, and Stripe Atlas has a real banking-rejection risk on a Russian passport.
-- The current arrangement is the cheapest, smallest moving-parts version that actually works end-to-end today. Cal.com is configured as a free event type (no payment app connected, Requires Confirmation off); anyone who reaches the booking page has already paid by definition. **Do not put the Cal.com URL on the landing** — it would defeat the gate.
+**No payments on the site.** Nothing is purchasable on the page. Prices are
+guides ("from $…"). Payment (SINPE, transfer, cash, PayPal) is agreed personally
+after a request. No payment provider, no webhooks, no report-file storage.
+Revisit a CR gateway (Onvopay / Tilopay) only when requests exceed a few per
+month. Gumroad and Cal.com are no longer on the site.
 
-**Warm, restrained tone.** Pricing menus over product cards. Discrete text links over solid CTA buttons. Reads like a thoughtful invitation, not a real-estate listing. Don't add bombastic copy, exclamation marks, or sales-y verbs.
+**Registry data rules (hard).**
+- Per-lot status with factual wording only: green "no mortgages, claims or
+  notes in the registry"; yellow "registry entries present (mortgage, claim or
+  note) — details in the lot report"; red "transfers blocked by court order"
+  (inmovilización only); special for lots that are not separate parcels.
+  Green = absence of entries, nothing else.
+- Every lot card shows its own `checked_on` plus: "Registry data as of <date>.
+  Records may have changed. An up-to-date check of this lot is part of the paid
+  report." Never call the map a "demo"; it is a snapshot on a date.
+- Never publish owner names, ID numbers, company names, or lot numbers inside
+  the comparable-sales list. Never use "disputed", "fraud", "stolen".
+- Company-owned lot: "registered owner is a company; a company check is part of
+  the report."
+- Declared deed prices can be understated; small samples — show n next to every
+  figure. "Registry check, not legal advice; hire a Costa Rican lawyer."
 
-**Honest framing of the place.** The site explicitly names the realities: no developer, no grid electricity (ICE conflict), volunteer HOA, owner-built community of 5–6 families. That honesty is the filter — wrong-fit people self-eject.
+**Disclosure ("How we earn").** Denis owns lots 47 and 123. He is paid for
+calls, visits and reports by buyers, and may be paid by sellers for listings or
+on closing. Every listing carries a role label: "our lot" / "we represent the
+seller" / "platform only". When showing a lot he earns from, the buyer is told.
 
-**No public contact back-channels.** The orientation call is the only public way to reach us, with the Tally form as an optional side door for owners/sellers/other. We deliberately removed the floating WhatsApp button — direct one-click chat undermines the $50 gate the whole architecture depends on. Phone, email, and WhatsApp continue to exist on the operator side (inside Gumroad receipts, workflow emails, post-orientation correspondence) but never as a button on the public landing.
+**Listing rule.** Asking price within the comparable-sales range → free
+listing; above → paid. "Verified against the registry on <date>" only after a
+fresh check.
+
+**No public contact back-channels.** Public ways in: the map, registration,
+the request form. No phone, no WhatsApp, no mailto on any page. Operator
+contacts live in replies, never on the site.
+
+**Honest framing stays.** No developer, volunteer HOA, owner-built community.
+"No grid electricity" — update only after ICE actually reconnects (works under
+way as of Nov 2026). Footer on every page: "Not affiliated with the Columbus
+Heights HOA."
+
+**Public repository rules.** Only `map_public.json`, `stats_public.json`,
+`lots_public.json` may be committed. Never: HANDOFF.md, `*_internal*.json`,
+owner tables, anything from the HOA folder, raw registry extracts, `.env`.
+
+**Platform.** Stage 0: static files on GitHub Pages, forms via Tally.
+Stage 1: Cloudflare (static assets + Workers + D1), magic-link login, gated
+comparable sales, request table, owner claims, listings with role label,
+privacy policy and deletion on request. Languages: EN / ES / RU.
+
+**Out of scope (first version).** Payments, neighbours' section, owners'
+directory, agents' catalogue, house sales, time-to-sell forecast, lot-care
+packages.
+
+**Archive — the 2026-05 model.** Single entry via a $50 orientation call paid on
+Gumroad, scheduled on Cal.com via the receipt email; three follow-on Gumroad
+products with a $50 coupon. Abandoned attempts: Gumroad/Lemon Squeezy in-page
+iframe modal (commit `ca9d2da`), Cal.com native payments (PayPal/HitPay/Stripe
+blocked for a CR merchant), Stripe Atlas / UAE entity (deferred). Kept here so
+nobody retries them by accident.
 
 ---
 
