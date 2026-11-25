@@ -4,576 +4,189 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-<!-- SEO basics -->
-<title>Columbus Heights · Off-grid permaculture community on Costa Rica's Pacific coast</title>
-<meta name="description" content="An owner-built, off-grid permaculture community in the hills above Costa Rica's central Pacific coast. Five families live here. Start with a 15-minute call." />
+<title>Columbus Heights · Lot map and registry check · Jacó, Costa Rica</title>
+<meta name="description" content="A clickable map of the 212 lots at Columbus Heights, Quebrada Amarilla, Jacó: what the National Registry shows for each lot on a given date, price ranges from comparable sales, area and terrain. Made by the people who live here." />
 <meta name="robots" content="index, follow" />
 <meta name="theme-color" content="#1f3a2e" />
 <link rel="canonical" href="https://columbusheights.estate/" />
 
-<!-- Open Graph -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Columbus Heights" />
 <meta property="og:url" content="https://columbusheights.estate/" />
-<meta property="og:title" content="Columbus Heights · Off-grid permaculture community on Costa Rica's Pacific coast" />
-<meta property="og:description" content="An owner-built, off-grid permaculture community in the hills above Costa Rica's central Pacific coast. Five families live here. Start with a 15-minute call." />
+<meta property="og:title" content="Columbus Heights · Lot map and registry check" />
+<meta property="og:description" content="Every lot at Columbus Heights, Costa Rica: registry status on a given date, price range from comparable sales, area and terrain. Made by residents, not the HOA." />
 <meta property="og:image" content="https://columbusheights.estate/images/hero.jpg" />
-<meta property="og:image:alt" content="Aerial view of the road through green fields, misty mountains in the distance — Columbus Heights, Costa Rica" />
+<meta property="og:image:alt" content="Aerial view of the road through green fields at Columbus Heights, misty mountains in the distance" />
 <meta property="og:image:width" content="1024" />
 <meta property="og:image:height" content="768" />
 <meta property="og:locale" content="en_US" />
-
-<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Columbus Heights · Off-grid permaculture community on Costa Rica's Pacific coast" />
-<meta name="twitter:description" content="An owner-built, off-grid permaculture community in the hills above Costa Rica's central Pacific coast. Five families live here. Start with a 15-minute call." />
+<meta name="twitter:title" content="Columbus Heights · Lot map and registry check" />
+<meta name="twitter:description" content="Every lot at Columbus Heights, Costa Rica: registry status on a given date, price range from comparable sales, area and terrain." />
 <meta name="twitter:image" content="https://columbusheights.estate/images/hero.jpg" />
-<meta name="twitter:image:alt" content="Aerial view of the road through green fields, misty mountains in the distance — Columbus Heights, Costa Rica" />
 
-<!-- JSON-LD structured data: Place + FAQPage -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Place",
+  "@type": "WebSite",
   "name": "Columbus Heights",
-  "alternateName": "Columbus Heights Estate",
-  "description": "An owner-built, off-grid permaculture community in the hills above Costa Rica's central Pacific coast. A handful of families live here year-round.",
   "url": "https://columbusheights.estate/",
-  "image": "https://columbusheights.estate/images/hero.jpg",
-  "address": {
-    "@type": "PostalAddress",
-    "addressRegion": "Puntarenas",
-    "addressLocality": "Playa Hermosa area",
-    "addressCountry": "CR"
-  },
-  "keywords": "permaculture community Costa Rica, off-grid living, intentional community, eco-village, Pacific coast, food forest, owner-built, Playa Hermosa, Puntarenas, Jacó"
+  "description": "Independent lot map and registry check for Columbus Heights, Quebrada Amarilla, Jacó, Costa Rica. Made by residents; not affiliated with the HOA.",
+  "inLanguage": ["en", "es", "ru"]
 }
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --forest:#1f3a2e;
-    --forest-deep:#142821;
-    --cream:#f5efe4;
-    --cream-soft:#faf6ee;
-    --clay:#b8694a;
-    --gold:#c89c5b;
-    --gold-soft:#e5c896;
-    --ink:#1a1a1a;
-    --muted:#6b6b6b;
-    --line:rgba(31,58,46,0.15);
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{
-    font-family:'Inter',sans-serif;
-    color:var(--ink);
-    background:var(--cream-soft);
-    line-height:1.65;
-    -webkit-font-smoothing:antialiased;
-  }
-  h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:400;letter-spacing:-.01em;line-height:1.15}
-  a{color:inherit;text-decoration:none}
-  img{max-width:100%;display:block}
-
-  /* Photo placeholder system — replace each .photo block with a real <img> */
-  .photo{
-    position:relative;overflow:hidden;
-    background:linear-gradient(135deg,#2a5a44 0%,#1f3a2e 50%,#142821 100%);
-    display:flex;align-items:center;justify-content:center;
-  }
-  .photo::before{
-    content:attr(data-label);
-    position:absolute;inset:0;
-    display:flex;align-items:center;justify-content:center;
-    color:rgba(229,200,150,.7);
-    font-family:'Cormorant Garamond',serif;font-style:italic;
-    font-size:.95rem;text-align:center;padding:1rem;
-    letter-spacing:.05em;line-height:1.4;
-  }
-  .photo::after{
-    content:"";position:absolute;inset:1rem;
-    border:1px dashed rgba(229,200,150,.25);pointer-events:none;
-  }
-
-  /* Nav */
-  .nav{
-    position:fixed;top:0;left:0;right:0;z-index:50;
-    padding:1.25rem 2rem;
-    display:flex;justify-content:space-between;align-items:center;
-    transition:background .3s ease, padding .3s ease, color .3s ease;
-    color:#fff;
-  }
-  .nav.scrolled{
-    background:rgba(245,239,228,.96);
-    backdrop-filter:blur(8px);
-    padding:.85rem 2rem;
-    color:var(--forest);
-    border-bottom:1px solid var(--line);
-  }
-  .brand{font-family:'Cormorant Garamond',serif;font-size:1.35rem;letter-spacing:.18em;text-transform:uppercase}
-  .brand span{color:var(--gold)}
-  .nav-links{display:flex;gap:2.2rem;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase}
-  .nav-links a{opacity:.9;transition:opacity .2s}
-  .nav-links a:hover{opacity:1;color:var(--gold)}
-  .nav-cta{
-    padding:.6rem 1.3rem;border:1px solid currentColor;border-radius:999px;
-    font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;
-    transition:all .2s;
-  }
-  .nav-cta:hover{background:var(--gold);border-color:var(--gold);color:#fff}
-  @media (max-width:820px){.nav-links{display:none}}
-
-  /* Hero */
-  .hero{
-    position:relative;min-height:100vh;
-    display:flex;align-items:center;justify-content:center;
-    color:#fff;text-align:center;
-    overflow:hidden;
-  }
-  .hero .photo{position:absolute;inset:0;z-index:0}
-  .hero-img{
-    position:absolute;inset:0;z-index:0;
-    width:100%;height:100%;
-    object-fit:cover;object-position:center;
-    display:block;
-  }
-  /* When a real <img> sits inside a .day-photo, .place-photo, or .life-tile
-     wrapper, make it fill the box and crop with object-fit:cover. */
-  .day-photo, .place-photo{overflow:hidden}
-  .day-photo > img, .place-photo > img{display:block;width:100%;height:100%;object-fit:cover}
-  .life-tile > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
-  .hero-veil{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(20,40,33,.5) 0%,rgba(20,40,33,.7) 100%)}
-  .hero-inner{position:relative;z-index:2;padding:0 1.5rem;max-width:920px}
-  .hero-eyebrow{
-    font-size:.78rem;letter-spacing:.36em;text-transform:uppercase;
-    color:var(--gold-soft);margin-bottom:1.6rem;
-    display:inline-flex;align-items:center;gap:1rem;
-  }
-  .hero-eyebrow::before,.hero-eyebrow::after{content:"";width:30px;height:1px;background:var(--gold-soft);opacity:.6}
-  .hero h1{
-    font-size:clamp(2.8rem,7vw,5.5rem);
-    font-weight:300;
-    margin-bottom:1.5rem;
-  }
-  .hero h1 em{font-style:italic;color:var(--gold-soft)}
-  .hero-sub{
-    font-size:clamp(1rem,1.4vw,1.18rem);
-    font-weight:300;max-width:640px;margin:0 auto 2.5rem;
-    opacity:.95;
-  }
-  .hero-cta{display:inline-flex;gap:1rem;flex-wrap:wrap;justify-content:center}
-  .btn{
-    padding:1rem 2.2rem;
-    font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;
-    border-radius:2px;cursor:pointer;border:none;
-    transition:all .25s ease;font-family:inherit;
-    display:inline-block;
-  }
-  .btn-primary{background:var(--gold);color:#fff}
-  .btn-primary:hover{background:#b3884a;transform:translateY(-2px)}
-  .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.6)}
-  .btn-ghost:hover{background:rgba(255,255,255,.1);border-color:#fff}
-  /* Pinned to viewport bottom while the hero is on screen, fades out as soon as
-     the user starts scrolling so it doesn't sit on top of the day section. */
-  .hero-scroll{
-    position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);z-index:2;
-    color:rgba(255,255,255,.7);font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;
-    display:flex;flex-direction:column;align-items:center;gap:.6rem;
-    pointer-events:none;
-    transition:opacity .3s ease, transform .3s ease;
-  }
-  .hero-scroll.hidden{opacity:0;transform:translate(-50%,8px)}
-  .hero-scroll .line{width:1px;height:40px;background:rgba(255,255,255,.5);animation:scrollPulse 2.4s infinite}
-  @keyframes scrollPulse{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}50.001%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
-
-  /* Sections */
-  section{padding:7rem 2rem;position:relative}
-  .container{max-width:1180px;margin:0 auto}
-  .section-eyebrow{
-    font-size:.75rem;letter-spacing:.36em;text-transform:uppercase;
-    color:var(--gold);margin-bottom:1.2rem;
-  }
-  .section-title{font-size:clamp(2rem,4vw,3.2rem);margin-bottom:1.5rem;color:var(--forest-deep)}
-  .section-title em{font-style:italic;color:var(--gold)}
-  .section-lead{font-size:1.1rem;color:var(--muted);max-width:680px;line-height:1.75}
-
-  .reveal{opacity:0;transform:translateY(30px);transition:opacity .9s ease,transform .9s ease}
-  .reveal.visible{opacity:1;transform:none}
-
-  /* Day at Columbus Heights — the centerpiece */
-  .day{background:var(--cream)}
-  .day-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
-  .day-photo{aspect-ratio:4/5;box-shadow:0 30px 60px -20px rgba(20,40,33,.4)}
-  .day-text p{margin-bottom:1.1rem;color:#3a3a3a}
-  .day-includes{
-    margin:2rem 0;padding:1.8rem 0;
-    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-  }
-  .day-includes-title{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
-  .day-includes ul{list-style:none}
-  .day-includes li{
-    padding:.55rem 0;font-size:.98rem;color:#2a2a2a;
-    display:flex;align-items:flex-start;gap:.9rem;
-  }
-  .day-includes li::before{
-    content:"";flex-shrink:0;
-    width:6px;height:6px;border-radius:50%;
-    background:var(--gold);margin-top:.65rem;
-  }
-
-  /* Outcomes list — the four possible paths after orientation */
-  .day-outcomes{list-style:none;margin:0;padding:0}
-  .day-outcomes li{
-    display:flex;justify-content:space-between;align-items:baseline;gap:1.5rem;
-    padding:.65rem 0;
-    border-bottom:1px solid var(--line);
-    font-size:.95rem;
-  }
-  .day-outcomes li:last-child{border-bottom:0}
-  .day-outcomes .outcome-name{color:#2a2a2a;flex:1}
-  .day-outcomes .outcome-add{
-    color:var(--muted);font-size:.82rem;letter-spacing:.05em;
-    white-space:nowrap;font-family:'Inter',sans-serif;
-  }
-
-  /* Booking — Cal.com inline embed surround */
-  .day-booking{
-    margin-top:5rem;padding:3rem 2.5rem;
-    background:var(--cream);border-radius:4px;
-    max-width:980px;margin-left:auto;margin-right:auto;
-  }
-  .day-booking-header{text-align:center;margin-bottom:2.5rem;max-width:560px;margin-left:auto;margin-right:auto}
-  .day-booking-header .section-eyebrow{margin-bottom:1rem}
-  .day-booking-title{font-size:1.6rem;color:var(--forest-deep);font-weight:400;margin-bottom:.6rem}
-  .day-booking-title em{font-style:italic;color:var(--gold)}
-  .day-booking-lead{font-size:.95rem;color:var(--muted);line-height:1.6;margin:0}
-  .day-reserve{
-    display:inline-block;
-    margin-top:2rem;
-    padding:.95rem 2.4rem;
-    background:var(--forest);
-    color:#fff;
-    font-size:.8rem;
-    letter-spacing:.22em;
-    text-transform:uppercase;
-    border-radius:2px;
-    transition:background .25s ease, transform .25s ease;
-  }
-  .day-reserve:hover{
-    background:var(--gold);
-    transform:translateY(-2px);
-  }
-
-  @media (max-width:820px){
-    .day-grid{grid-template-columns:1fr;gap:3rem}
-    .day-booking{padding:2rem 1.2rem;margin-top:3rem}
-    .day-outcomes li{flex-direction:column;gap:.2rem;align-items:flex-start}
-  }
-
-  /* The place — honest framing */
-  .place{background:var(--cream-soft)}
-  .place-header{text-align:center;margin-bottom:5rem;max-width:760px;margin-left:auto;margin-right:auto}
-  .place-header .section-lead{margin:0 auto}
-  .place-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
-  .place-card{
-    padding:2.5rem;background:#fff;border:1px solid var(--line);
-    border-radius:2px;
-  }
-  .place-card h3{font-size:1.6rem;color:var(--forest);margin-bottom:.8rem}
-  .place-card h3 em{font-style:italic;color:var(--gold)}
-  .place-card p{color:#3a3a3a;font-size:.98rem}
-  .place-card.is-have{border-left:3px solid var(--forest)}
-  .place-card.is-not{border-left:3px solid var(--clay)}
-  .place-card.is-not h3 em{color:var(--clay)}
-  .place-photo{aspect-ratio:21/9;margin-top:3rem}
-  @media (max-width:820px){.place-grid{grid-template-columns:1fr;gap:1.5rem}}
-
-  /* How we live */
-  .life{background:var(--forest-deep);color:#fff}
-  .life .section-title{color:#fff}
-  .life .section-lead{color:rgba(255,255,255,.7)}
-  .life-header{margin-bottom:4rem;max-width:680px}
-  .life-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
-  .life-tile{aspect-ratio:3/4;position:relative;overflow:hidden}
-  .life-caption{
-    position:absolute;bottom:0;left:0;right:0;
-    padding:1.2rem 1.2rem 1rem;
-    background:linear-gradient(180deg,transparent,rgba(0,0,0,.7));
-    z-index:3;
-  }
-  .life-caption strong{display:block;font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:500;color:#fff;margin-bottom:.2rem}
-  .life-caption span{font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-soft)}
-  .life-tile .photo{position:absolute;inset:0}
-  @media (max-width:820px){.life-grid{grid-template-columns:repeat(2,1fr)}}
-
-  /* For Owners — quiet list of offerings */
-  .services{background:var(--cream)}
-  .services-header{text-align:center;max-width:720px;margin:0 auto 3rem}
-  .services-header .section-lead{margin:0 auto}
-  .services-list{
-    max-width:960px;margin:0 auto;
-    display:grid;grid-template-columns:1fr 1fr;gap:.5rem 3rem;
-  }
-  .service{
-    padding:1.5rem 0;
-    border-top:1px solid var(--line);
-  }
-  .service-tag{
-    font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;
-    color:var(--gold);margin-bottom:.5rem;display:block;
-  }
-  .service h3{
-    font-size:1.18rem;color:var(--forest);margin-bottom:.5rem;line-height:1.3;
-    font-weight:400;
-  }
-  .service h3 em{font-style:italic}
-  .service p{font-size:.9rem;color:var(--muted);line-height:1.6}
-  @media (max-width:820px){.services-list{grid-template-columns:1fr;gap:0}}
-
-  /* Booking form */
-  .book{background:var(--forest-deep);color:#fff;padding:8rem 2rem}
-  .book-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:5rem}
-  .book .section-title{color:#fff}
-  .book .section-lead{color:rgba(255,255,255,.78);margin-bottom:2rem}
-  .book-note{
-    padding:1.5rem;background:rgba(229,200,150,.08);
-    border-left:2px solid var(--gold);
-    font-size:.92rem;color:rgba(255,255,255,.85);line-height:1.7;
-    margin-top:2rem;
-  }
-  form{display:flex;flex-direction:column;gap:1.2rem}
-  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
-  label{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6);display:block;margin-bottom:.5rem}
-  input,textarea,select{
-    width:100%;padding:.9rem 1rem;
-    background:rgba(255,255,255,.06);
-    border:1px solid rgba(255,255,255,.18);
-    color:#fff;font-family:inherit;font-size:.95rem;
-    border-radius:2px;transition:border-color .2s;
-  }
-  input::placeholder,textarea::placeholder{color:rgba(255,255,255,.35)}
-  input:focus,textarea:focus,select:focus{outline:none;border-color:var(--gold)}
-  textarea{resize:vertical;min-height:110px}
-  select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23c89c5b' d='M6 8L0 0h12z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center}
-  form button{margin-top:.5rem;align-self:flex-start}
-  .form-status{font-size:.9rem;color:var(--gold-soft);opacity:0;transition:opacity .3s;margin-top:.5rem}
-  .form-status.show{opacity:1}
-  .tally-wrap{
-    background:var(--cream);
-    padding:2rem 1.8rem;
-    border-radius:2px;
-    min-height:620px;
-    box-shadow:0 30px 60px -25px rgba(0,0,0,.4);
-  }
-  .tally-wrap iframe{width:100%;border:0;background:transparent;display:block}
-  @media (max-width:820px){.book-grid{grid-template-columns:1fr;gap:3rem}.form-row{grid-template-columns:1fr}.tally-wrap{padding:1.5rem 1.2rem}}
-
-  /* FAQ */
-  .faq{background:var(--cream-soft)}
-  .faq-list{max-width:780px;margin:3rem auto 0}
-  .faq-item{
-    border-bottom:1px solid var(--line);
-    padding:1.4rem 0;cursor:pointer;
-  }
-  .faq-q{
-    display:flex;justify-content:space-between;align-items:center;gap:1rem;
-    font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:var(--forest-deep);
-  }
-  .faq-q::after{content:"+";color:var(--gold);font-size:1.5rem;transition:transform .2s}
-  .faq-item.open .faq-q::after{transform:rotate(45deg)}
-  .faq-a{
-    max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;
-    color:var(--muted);font-size:.98rem;line-height:1.75;
-  }
-  .faq-item.open .faq-a{max-height:300px;padding-top:1rem}
-
-  /* Footer */
-  footer{background:#0d1c17;color:rgba(255,255,255,.6);padding:3rem 2rem;text-align:center;font-size:.85rem}
-  footer .brand{color:#fff;margin-bottom:1rem;display:block}
-  footer .fine{font-size:.75rem;margin-top:1rem;opacity:.6}
-</style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<link rel="stylesheet" href="css/site.css">
 </head>
 <body>
 
-<!-- Nav -->
 <nav class="nav" id="nav">
-  <a href="#" class="brand">Columbus <span>·</span> Heights</a>
+  <a href="index.html" class="brand">Columbus <span>·</span> Heights</a>
   <div class="nav-links">
-    <a href="#day">The Day</a>
-    <a href="#place">The Place</a>
-    <a href="#life">How We Live</a>
-    <a href="#owners">Owners</a>
-    <a href="#book">Stay in Touch</a>
+    <a href="index.html#map" data-i18n="nav.map">Map</a>
+    <a href="index.html#how" data-i18n="nav.how">How it works</a>
+    <a href="market.html" data-i18n="nav.market">Market</a>
+    <a href="how-we-count.html" data-i18n="nav.method">Method</a>
+    <a href="request.html" data-i18n="nav.request">Request</a>
   </div>
-  <a href="#day" class="nav-cta">Book a Day</a>
+  <div class="lang" aria-label="Language">
+    <button type="button" data-lang="en">EN</button><span>·</span>
+    <button type="button" data-lang="es">ES</button><span>·</span>
+    <button type="button" data-lang="ru">RU</button>
+  </div>
 </nav>
 
-<!-- Hero -->
-<header class="hero">
-  <img class="hero-img" src="images/hero.jpg" alt="Columbus Heights — aerial view of the road through green fields, misty mountains in the distance" loading="eager" fetchpriority="high" width="2400" height="1800">
-  <div class="hero-veil"></div>
-
-  <div class="hero-inner">
-    <div class="hero-eyebrow">Costa Rica · Pacific Coast</div>
-    <h1>Come spend a <em>day</em> with us.</h1>
-    <p class="hero-sub">Columbus Heights is an owner-built, off-grid community in the hills above the Pacific. A handful of families live here year-round. Before you read another listing or watch another YouTube tour, spend a day with the people who actually live the life you're imagining.</p>
-    <div class="hero-cta">
-      <a href="#day" class="btn btn-primary">A Day at Columbus Heights</a>
-      <a href="#place" class="btn btn-ghost">About the Place</a>
-    </div>
-  </div>
-
-  <div class="hero-scroll">
-    <span>Scroll</span>
-    <div class="line"></div>
+<header class="intro">
+  <img class="intro-img" src="images/hero.jpg" alt="Aerial view of the road through green fields at Columbus Heights, misty mountains in the distance" loading="eager" fetchpriority="high" width="1024" height="768">
+  <div class="intro-veil"></div>
+  <div class="intro-inner">
+    <div class="eyebrow" data-i18n="intro.eyebrow">Quebrada Amarilla · Jacó · Costa Rica</div>
+    <h1 data-i18n-html="intro.title">The lots of Columbus Heights, <em>as the registry sees them.</em></h1>
+    <p data-i18n="intro.lead">Two hundred and twelve parcels in the hills above the Pacific, and no developer to ask. For every lot: what the National Registry has on record, what similar lots have actually sold for, and a way to talk to the people who live here.</p>
   </div>
 </header>
 
-<!-- The Day — centerpiece -->
-<section class="day" id="day">
-  <div class="container day-grid">
-    <div class="day-photo reveal">
-      <img src="images/day.jpg" alt="An evening at Columbus Heights — glamping tent at dusk, warm lamplight, fairy lights in the trees" loading="lazy" width="1200" height="1600">
-    </div>
-
-    <div class="day-text reveal">
-      <div class="section-eyebrow">A Day at Columbus Heights</div>
-      <h2 class="section-title">The most honest way to <em>know.</em></h2>
-      <p>People have visited us for years — neighbors, friends-of-friends, strangers from the internet. We've loved showing them around. But the most useful first step we've found is simpler than a tour: a short, real conversation, before anything else.</p>
-      <p>Every connection with us begins with a 15-minute orientation call. It's where we figure out together what makes sense — an extended video conversation, a half-day visit, a full day with a meal from the garden, or sometimes nothing more. The orientation fee credits toward whatever you choose next.</p>
-
-      <div class="day-includes">
-        <div class="day-includes-title">After the orientation, possible next steps</div>
-        <ul class="day-outcomes">
-          <li><span class="outcome-name">Extended video conversation</span><span class="outcome-add">$150</span></li>
-          <li><span class="outcome-name">Half-day visit on the land</span><span class="outcome-add">$100</span></li>
-          <li><span class="outcome-name">Full day with a meal from the garden</span><span class="outcome-add">$200</span></li>
-          <li><span class="outcome-name">Sometimes, nothing more — and that's fine too</span><span class="outcome-add">no further cost</span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="container day-booking reveal">
-    <div class="day-booking-header">
-      <div class="section-eyebrow">A First Conversation</div>
-      <h3 class="day-booking-title">Book a 15-minute orientation · <em>$50</em></h3>
-      <p class="day-booking-lead">Pay and reserve below — you'll receive a scheduling link to pick a time that works for you. The Google Meet invite arrives automatically once you've booked.</p>
-      <a class="day-reserve" href="https://starkwave15.gumroad.com/l/che-orientation?wanted=true" target="_blank" rel="noopener">Reserve →</a>
-    </div>
-  </div>
-</section>
-
-<!-- The Place — honest -->
-<section class="place" id="place">
+<!-- The map — the centrepiece -->
+<section class="map-section" id="map-section">
   <div class="container">
-    <div class="place-header reveal">
-      <div class="section-eyebrow">The Place</div>
-      <h2 class="section-title">Not a development. Not a <em>condominio</em>. Something else.</h2>
-      <p class="section-lead">Columbus Heights was planned as a 200+ lot development a decade and a half ago. The developer is no longer here. What remains is the land, the infrastructure that was built, and the people who chose to actually live on it. Five or six families full-time. Ten or twelve houses standing. A lot of vacant lots — some owned by speculators, some quietly waiting for the right neighbor to find them.</p>
+    <div class="map-header">
+      <div class="section-eyebrow" data-i18n="map.eyebrow">The map</div>
+      <h2 class="section-title" data-i18n-html="map.title">Click a lot. <em>Read what is on record.</em></h2>
+      <p class="section-lead" data-i18n="map.lead">Status comes from the Registro Nacional on the date shown with each lot. Price ranges come from five comparable closed sales, declared prices, land only. Nothing here is a legal opinion — it is a place to start.</p>
     </div>
-
-    <div class="place-grid reveal">
-      <div class="place-card is-have">
-        <h3>What's <em>here</em></h3>
-        <p>A gated entrance and eight kilometers of paved roads (genuinely rare in rural Costa Rica — one of the things we love most about this place), maintained by a volunteer HOA. Community water with reliable pressure. Starlink internet that runs our remote work life day to day. A handful of permanent neighbors who know each other and look out for one another. And then there are the other residents — deer, wild boars, macaws, toucans, dozens of other birds, the hills, the river, the canopy. Ocean breezes and an exceptional microclimate.</p>
+    <div class="map-grid">
+      <div class="map-wrap">
+        <div id="map" role="application" aria-label="Map of Columbus Heights lots"></div>
+        <div class="map-legend" id="map-legend"></div>
       </div>
-      <div class="place-card is-not">
-        <h3>What's <em>not</em></h3>
-        <p>No developer to call. No grid electricity — the national utility has an unresolved dispute with the original project, so every house here runs on solar (which works beautifully). The HOA is volunteer; not every absent owner pays dues. No clubhouse, no manicured amenities, no rules about the color of your roof. If that sounds like a problem to you, this is probably not your place. If it sounds like freedom, keep reading.</p>
-      </div>
-    </div>
-
-    <div class="place-photo reveal">
-      <img src="images/place.jpg" alt="Aerial view of our lot at Columbus Heights — fruit-forest plot, owner-built house, surrounding jungle" loading="lazy" width="2000" height="1500">
+      <aside class="lot-card" id="lot-card" aria-live="polite">
+        <div class="lot-empty">
+          <h3 data-i18n="card.empty.title">Choose a lot on the map</h3>
+          <p data-i18n="card.empty.text">Each lot shows what the National Registry had on record on the date given, a price range from five comparable closed sales, the area, relief and cover.</p>
+        </div>
+      </aside>
     </div>
   </div>
 </section>
 
-<!-- How we live -->
-<section class="life" id="life">
+<!-- Who we are -->
+<section class="who" id="who">
+  <div class="container who-grid">
+    <div class="who-photos reveal">
+      <div><img src="images/house.jpg" alt="Our owner-built house, framed by trees on the property" loading="lazy" width="1067" height="1600"></div>
+      <div><img src="images/day.jpg" alt="An evening at Columbus Heights — glamping tent at dusk, warm lamplight, fairy lights in the trees" loading="lazy" width="1200" height="1600"></div>
+    </div>
+    <div class="who-text reveal">
+      <div class="section-eyebrow" data-i18n="who.eyebrow">Who we are</div>
+      <h2 class="section-title" data-i18n-html="who.title">We live <em>here.</em></h2>
+      <p data-i18n="who.p1">Five years on lot 47, in a house we built ourselves. Solar on the roof, a garden that feeds us part of the year, children at the school down the road, work over Starlink. The quiet, the birds and the paved roads are what keep us here. The stories about problem lots are what made us build this map.</p>
+      <p data-i18n="who.p2">We are not agents and we are not the HOA. Everything on this site comes from public registry records and real deeds, with the date it was read and the method used. Where we earn something, we say so.</p>
+      <div class="who-links">
+        <a class="quiet-link" href="how-we-earn.html" data-i18n="who.link.earn">How we earn →</a>
+        <a class="quiet-link" href="how-we-count.html" data-i18n="who.link.count">How we count →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How it works — the ladder -->
+<section class="how" id="how">
   <div class="container">
-    <div class="life-header reveal">
-      <div class="section-eyebrow">How We Live</div>
-      <h2 class="section-title">A small life, <em>well-built.</em></h2>
-      <p class="section-lead">We've been here five years. We built our home with our own choices. We grow some of what we eat. We bake our own bread. We pay $0 a month for electricity. None of this is exotic — it's just what becomes possible when nobody is telling you what to do.</p>
-    </div>
-
-    <div class="life-grid reveal">
-      <div class="life-tile">
-        <img src="images/house.jpg" alt="Our owner-built house, framed by trees on the property" loading="lazy" width="1067" height="1600">
-        <div class="life-caption"><strong>The House</strong><span>Owner-built</span></div>
-      </div>
-      <div class="life-tile">
-        <img src="images/solar.jpg" alt="Rooftop solar panels overlooking the green field and hills beyond" loading="lazy" width="960" height="1280">
-        <div class="life-caption"><strong>Solar</strong><span>Off-grid, year five</span></div>
-      </div>
-      <div class="life-tile">
-        <img src="images/garden.jpg" alt="Papaya tree from below — green fruits and dramatic leaves against the sky" loading="lazy" width="1200" height="1600">
-        <div class="life-caption"><strong>The Garden</strong><span>Food forest</span></div>
-      </div>
-      <div class="life-tile">
-        <img src="images/kitchen.jpg" alt="A loaf of fresh bread on the kitchen counter, with the hills visible through the window" loading="lazy" width="1200" height="1600">
-        <div class="life-caption"><strong>The Kitchen</strong><span>Slow food, mostly ours</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- For Owners — second audience -->
-<section class="services" id="owners">
-  <div class="container">
-    <div class="services-header reveal">
-      <div class="section-eyebrow">If You Own a Lot Here</div>
-      <h2 class="section-title">For fellow <em>owners.</em></h2>
-      <p class="section-lead">Whether you're caring for a parcel from far away, getting ready to build, or thinking about finding the right next neighbor to take it on — here's how we help. Different paths, same intent: keep this place healthy and in good hands.</p>
-    </div>
-
-    <div class="services-list reveal">
-      <div class="service">
-        <span class="service-tag">Selling</span>
-        <h3>Find the <em>right</em> next owner</h3>
-        <p>Every potential buyer who comes through us has been through our orientation questionnaire and a real day on the ground — people who want to actually live here, not flip the lot. When the right person and the right parcel meet, we facilitate the introduction. Modest finder's fee on closing, far less than a traditional agent.</p>
-      </div>
-      <div class="service">
-        <span class="service-tag">Maintenance</span>
-        <h3>Eyes on your <em>lot</em></h3>
-        <p>Monthly brush cutting, perimeter check, photo report, and a heads-up if anything needs attention. Coordinated by a long-time neighbor who knows the terrain and the seasons. Simple monthly subscription per lot — peace of mind from anywhere in the world.</p>
-      </div>
-      <div class="service">
-        <span class="service-tag">Improvement</span>
-        <h3>Plant a <em>fruit forest</em></h3>
-        <p>Turn your lot into a productive food forest in your absence — local species, sensibly planned, planted from our own seedlings and tended through the first year. The lot you eventually arrive at has shade, fruit, and ten years less waiting.</p>
-      </div>
-      <div class="service">
-        <span class="service-tag">Building</span>
-        <h3>When it's time to <em>arrive</em></h3>
-        <p>Ready to build or move in? Lawyer and immigration referrals, builder and solar installer introductions, water system planning, sourcing materials locally, the first hundred small questions of life in Costa Rica. So your first months are about the place, not the paperwork.</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- Booking -->
-<section class="book" id="book">
-  <div class="container book-grid">
     <div class="reveal">
-      <div class="section-eyebrow">Stay in Touch</div>
-      <h2 class="section-title">Tell us a little <em>about you.</em></h2>
-      <p class="section-lead">If you own a lot at Columbus Heights, you're thinking about selling, you're exploring an idea we haven't thought of, or you just want to start a quiet conversation — write to us through the form. We read every response. We reply when something resonates.</p>
+      <div class="section-eyebrow" data-i18n="how.eyebrow">How it works</div>
+      <h2 class="section-title" data-i18n-html="how.title">Six steps, <em>each one optional.</em></h2>
+      <p class="section-lead" data-i18n="how.lead">Start where it is useful and stop where it stops being useful. Nothing on this page is sold. Every step is a request we answer personally, and payment is agreed then.</p>
+    </div>
+    <ol class="steps reveal">
+      <li class="step">
+        <h3 data-i18n="how.s1.title">Look at the map</h3>
+        <span class="price" data-i18n="how.s1.price">Free</span>
+        <p data-i18n="how.s1.text">Registry status, price range, area, relief and cover for every lot. No sign-up.</p>
+      </li>
+      <li class="step">
+        <h3 data-i18n="how.s2.title">Ask for the comparable sales</h3>
+        <span class="price" data-i18n="how.s2.price">Free</span>
+        <p data-i18n="how.s2.text">Leave your email through the form and we send the five closed sales behind the range for your lot — without lot numbers — and how we got there.</p>
+      </li>
+      <li class="step">
+        <h3 data-i18n="how.s3.title">A 15-minute call</h3>
+        <span class="price" data-i18n="how.s3.price">$50</span>
+        <p data-i18n="how.s3.text">What you are looking for, what this place is and is not, whether it is worth your time to come. The $50 counts toward any later step.</p>
+      </li>
+      <li class="step">
+        <h3 data-i18n="how.s4.title">A visit</h3>
+        <span class="price" data-i18n="how.s4.price">Half day from $150 · full day from $250</span>
+        <p data-i18n="how.s4.text">We walk the lots with you, show the roads, the water, our house. A full day ends with a meal from the garden. A night in the guesthouse on request.</p>
+      </li>
+      <li class="step">
+        <h3 data-i18n="how.s5.title">A lot report</h3>
+        <span class="price" data-i18n="how.s5.price">From $200</span>
+        <p data-i18n="how.s5.text">Before you make an offer: every transfer in the lot's history, mortgages and notes explained, the state of the owning company, copies of the last deeds, a search of auction notices, and a plain list of what the report does not cover. A registry check, not legal advice.</p>
+      </li>
+      <li class="step">
+        <h3 data-i18n="how.s6.title">The deal</h3>
+        <span class="price" data-i18n="how.s6.price">With your lawyer</span>
+        <p data-i18n="how.s6.text">A Costa Rican lawyer handles the purchase and the escrow. We stay around: directions, builders, water, the first hundred questions, and the neighbours.</p>
+      </li>
+    </ol>
+    <div class="how-foot reveal">
+      <a class="btn-quiet" href="request.html" data-i18n="how.cta">Send a request</a>
+      <p class="how-note" data-i18n="how.note">Prices are guides. We agree the exact amount and the way to pay — transfer, SINPE, cash — once we have talked.</p>
+    </div>
+  </div>
+</section>
 
-      <div class="book-note">
-        We can't promise a reply to every message — but if we don't write back and your question still matters to you, the 15-minute orientation call above is always open. A day visit always starts there.
+<!-- For owners -->
+<section class="owners" id="owners">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-eyebrow" data-i18n="owners.eyebrow">If you own a lot here</div>
+      <h2 class="section-title" data-i18n-html="owners.title">For <em>owners.</em></h2>
+      <p class="section-lead" data-i18n="owners.lead">You may be far away and wondering what your parcel is worth, or ready to pass it on to the right neighbour. The same map works for you.</p>
+    </div>
+    <div class="owners-list reveal">
+      <div class="owner-item">
+        <span class="tag" data-i18n="owners.o1.tag">Value</span>
+        <h3 data-i18n="owners.o1.title">What is it worth</h3>
+        <p data-i18n="owners.o1.text">Click your lot. The range comes from five comparable closed sales, brought to today's level and to a standard 5,000 m² lot. Ask for the five sales by email, free. If the number looks wrong to you, tell us — the form is on the method page.</p>
+      </div>
+      <div class="owner-item">
+        <span class="tag" data-i18n="owners.o2.tag">Sell</span>
+        <h3 data-i18n="owners.o2.title">List it here</h3>
+        <p data-i18n="owners.o2.text">Listings carry a role label — our lot, we represent the seller, or platform only — and a registry verification dated the day we checked. Priced within the comparable range, a listing is free; above it, there is a fee. Send a request and we talk.</p>
+      </div>
+      <div class="owner-item">
+        <span class="tag" data-i18n="owners.o3.tag">Check</span>
+        <h3 data-i18n="owners.o3.title">Know what is on record</h3>
+        <p data-i18n="owners.o3.text">The same report buyers order, for your own lot: history, mortgages and notes, the owning company's status, copies of deeds. Useful before you sell, inherit or build.</p>
       </div>
     </div>
-
-    <div class="tally-wrap reveal">
-      <iframe data-tally-src="https://tally.so/embed/aQ2b8W?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="200" frameborder="0" marginheight="0" marginwidth="0" title="Columbus Heights Orientation Questionnaire"></iframe>
+    <div class="owners-foot reveal">
+      <a class="quiet-link" href="request.html?service=listing" data-i18n="owners.cta">Send a request →</a>
     </div>
   </div>
 </section>
@@ -581,88 +194,80 @@
 <!-- FAQ -->
 <section class="faq" id="faq">
   <div class="container">
-    <div style="text-align:center;max-width:680px;margin:0 auto" class="reveal">
-      <div class="section-eyebrow">Before You Book</div>
-      <h2 class="section-title">Common <em>questions.</em></h2>
+    <div class="faq-head reveal">
+      <div class="section-eyebrow" data-i18n="faq.eyebrow">Before you write</div>
+      <h2 class="section-title" data-i18n-html="faq.title">Common <em>questions.</em></h2>
     </div>
-
     <div class="faq-list reveal">
       <div class="faq-item">
-        <div class="faq-q">Do I have to be planning to buy a lot to book a day?</div>
-        <div class="faq-a">Not at all. Some of our favorite visits have been with people who were just curious about off-grid living in the tropics. The day stands on its own.</div>
+        <div class="faq-q" data-i18n="faq.q1">What does green mean?</div>
+        <div class="faq-a" data-i18n="faq.a1">Only that on the date shown the registry had no mortgages, claims or notes on that parcel. It says nothing about boundaries, about how often the lot changed hands, or about the company that may own it. Yellow means there are entries — a mortgage, a claim or a note — which the report explains. Red is one case only: transfers blocked by a court order.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">Why is there a fee for the orientation call?</div>
-        <div class="faq-a">We're not real estate agents and we don't earn commissions on lots. Over the years we've done hundreds of free conversations, which was lovely but unsustainable. The $50 orientation covers our time and quietly filters for people serious enough to invest something in finding out. If you continue with us — to a longer call or to an in-person visit — the $50 credits toward that.</div>
+        <div class="faq-q" data-i18n="faq.q2">Why is the data "as of" a date?</div>
+        <div class="faq-a" data-i18n="faq.a2">We read the registry on a date and publish that snapshot; entries can be added any day. Each lot shows the date it was last checked. A fresh check is part of the paid report.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">What about schools for our kids?</div>
-        <div class="faq-a">Three options at increasing distances. The public school in Quebrada Amarilla is a three-minute drive, Spanish-only — a real immersion path for kids open to it. Playa Hermosa, seven minutes away, has several schools including bilingual options (Spanish and English). For an English-first or international curriculum, Journey School in Jacó is an IB school running English, Spanish, and all grade levels. Several families also homeschool — we can talk through what that looks like during your day.</div>
+        <div class="faq-q" data-i18n="faq.q3">Is this legal advice?</div>
+        <div class="faq-a" data-i18n="faq.a3">No. A registry check summarises public records in plain language. Any purchase in Costa Rica needs your own lawyer, and we will say so again when we meet.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">Healthcare — what's nearby?</div>
-        <div class="faq-a">Jacó is about fifteen minutes from the gate — several hospitals, multiple dentists, and a handful of alternative-health practitioners. The basics and the not-so-basics are both within easy reach.</div>
+        <div class="faq-q" data-i18n="faq.q4">Where do the prices come from?</div>
+        <div class="faq-a" data-i18n="faq.a4">From the declared prices in the deeds of five comparable closed sales, brought to the 2024–2026 level and to a standard 5,000 m² lot. Declared prices can understate what was paid; the samples are small. The method page spells out every step and every limit.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">How's the internet? Can we work remotely?</div>
-        <div class="faq-a">Starlink works exceptionally well here. We run video calls, design work, and full remote-work setups on it without issue. Cell coverage is solid as a backup. Several neighbors here work remotely full-time in tech and creative fields.</div>
+        <div class="faq-q" data-i18n="faq.q5">Are you the HOA, or agents?</div>
+        <div class="faq-a" data-i18n="faq.a5">Neither. We are residents. The site is not affiliated with the Columbus Heights HOA and we do not speak for the community. Where we earn — calls, visits, reports, some listings — we say so on the page about how we earn.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">How do I actually get there?</div>
-        <div class="faq-a">We'll send full directions once your visit is confirmed. A regular rental car is fine — the road from the highway to the gate is concrete, and the roads inside the community are paved. No 4x4 required. We can also recommend a local driver if you'd rather not drive.</div>
+        <div class="faq-q" data-i18n="faq.q6">Why is the call paid?</div>
+        <div class="faq-a" data-i18n="faq.a6">We are not agents and we do not earn a commission on most lots. Over the years we did hundreds of free conversations, which was lovely but unsustainable. The $50 covers our time and quietly filters for people serious enough to invest something in finding out. It counts toward any later step.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">What should I bring?</div>
-        <div class="faq-a">Walking shoes, sun protection, a water bottle, and an appetite for honest conversation. The terrain is hilly but not difficult.</div>
+        <div class="faq-q" data-i18n="faq.q7">What about electricity?</div>
+        <div class="faq-a" data-i18n="faq.a7">The community has had no grid electricity since late 2024; houses here run on solar, and it works. An agreement with ICE has been reached and paid, and works are under way as of November 2026 — but the connection is not there yet, and we will not write that it is until it is.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">Is it kid-friendly?</div>
-        <div class="faq-a">Yes — children are welcome and the garden is endlessly interesting. Let us know ages in your message so we can adjust the walk.</div>
+        <div class="faq-q" data-i18n="faq.q8">What about schools?</div>
+        <div class="faq-a" data-i18n="faq.a8">Three options at increasing distances. The public school in Quebrada Amarilla is a three-minute drive, Spanish only — a real immersion path for children open to it. Playa Hermosa, seven minutes away, has several schools including bilingual options. For an English-first or international curriculum, Journey School in Jacó is an IB school with all grade levels. Several families also homeschool.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">What about rain?</div>
-        <div class="faq-a">Costa Rican rain is part of the experience — and most of it falls in predictable afternoon windows. We'll adjust the day around the weather. We don't reschedule unless conditions are genuinely unsafe.</div>
+        <div class="faq-q" data-i18n="faq.q9">Healthcare — what is nearby?</div>
+        <div class="faq-a" data-i18n="faq.a9">Jacó is about fifteen minutes from the gate — hospitals, dentists, and a handful of alternative-health practitioners. The basics and the not-so-basics are both within easy reach.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">What languages?</div>
-        <div class="faq-a">We host in English and Russian. Conversational Spanish is fine too.</div>
+        <div class="faq-q" data-i18n="faq.q10">How is the internet? Can we work remotely?</div>
+        <div class="faq-a" data-i18n="faq.a10">Starlink works exceptionally well here. We run video calls, design work and full remote-work setups on it without issue. Cell coverage is solid as a backup. Several neighbours work remotely full-time.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" data-i18n="faq.q11">How do we get there?</div>
+        <div class="faq-a" data-i18n="faq.a11">We send full directions once a visit is confirmed. A regular rental car is fine — the road from the highway to the gate is concrete, and the roads inside the community are paved. No 4x4 required.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" data-i18n="faq.q12">What languages?</div>
+        <div class="faq-a" data-i18n="faq.a12">We host in English and Russian. Conversational Spanish is fine too.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Footer -->
 <footer>
   <span class="brand">Columbus · Heights</span>
-  <div>An owner-built community on the Pacific coast of Costa Rica.</div>
-  <div class="fine">© 2026 · columbusheights.estate · Hosted by the families who live here.</div>
+  <div data-i18n="foot.made">Made by the families who live at Columbus Heights.</div>
+  <p class="hoa" data-i18n="foot.hoa">Not affiliated with the Columbus Heights HOA</p>
+  <div class="foot-links">
+    <a href="index.html#map" data-i18n="nav.map">Map</a>
+    <a href="how-we-count.html" data-i18n="foot.count">How we count</a>
+    <a href="how-we-earn.html" data-i18n="foot.earn">How we earn</a>
+    <a href="market.html" data-i18n="nav.market">Market</a>
+    <a href="request.html" data-i18n="nav.request">Request</a>
+  </div>
+  <div class="fine"><span data-i18n="foot.legal">Registry check, not legal advice.</span> · © 2026 · columbusheights.estate</div>
 </footer>
 
-<script>
-  // Sticky nav + fade the hero scroll hint as soon as scrolling starts
-  const nav = document.getElementById('nav');
-  const scrollHint = document.querySelector('.hero-scroll');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 60);
-    if (scrollHint) scrollHint.classList.toggle('hidden', window.scrollY > 40);
-  });
-
-  // Reveal on scroll
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
-    });
-  },{threshold:.15});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-  // FAQ accordion
-  document.querySelectorAll('.faq-item').forEach(item=>{
-    item.addEventListener('click',()=>item.classList.toggle('open'));
-  });
-</script>
-
-<!-- Tally embed loader -->
-<script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
-
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="js/i18n.js"></script>
+<script src="js/site.js"></script>
+<script src="js/map.js"></script>
 </body>
 </html>
