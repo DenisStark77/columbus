@@ -235,7 +235,7 @@ footer .fine{font-size:.74rem;color:rgba(255,255,255,.5);margin-top:.6rem}
 .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.5rem 0 1rem}
 .stat{background:#fff;border:1px solid var(--line);border-radius:2px;padding:1rem 1.1rem}
 .stat b{display:block;font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:400;color:var(--forest-deep);font-variant-numeric:tabular-nums}
-.stat span{font-size:.76rem;color:var(--muted);line-height:1.4;display:block}
+.stat > span{font-size:.76rem;color:var(--muted);line-height:1.4;display:block}
 @media (max-width:700px){.stat-row{grid-template-columns:1fr}}
 
 /* Forms (Tally) */
@@ -249,3 +249,14 @@ footer .fine{font-size:.74rem;color:rgba(255,255,255,.5);margin-top:.6rem}
 .prefill{font-size:.86rem;color:var(--forest);background:var(--cream);padding:.7rem 1rem;border-radius:2px;margin-bottom:1.2rem;display:none}
 .prefill.show{display:block}
 @media (max-width:900px){.form-grid{grid-template-columns:1fr;gap:2rem}.tally-wrap{padding:1.4rem 1.2rem .6rem}}
+
+/* Chart tooltip (js/market.js) */
+.chart{position:relative}
+.chart-tip{
+  position:absolute;display:none;pointer-events:none;z-index:5;
+  background:var(--forest-deep);color:#fff;font-size:.78rem;line-height:1.4;
+  padding:.4rem .65rem;border-radius:3px;white-space:nowrap;box-shadow:0 6px 16px -6px rgba(0,0,0,.4);
+}
+.chart g[data-tip]{cursor:default}
+.chart g[data-tip]:hover .bar{fill:var(--gold)}
+.chart g[data-tip]:hover .median{fill:var(--gold)}

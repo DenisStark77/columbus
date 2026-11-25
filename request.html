@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Send a request · Columbus Heights</title>
+<meta name="description" content="Ask for the comparable sales of a lot, a call, a visit, a night in the guesthouse, a lot report, or a listing. We reply personally; payment is agreed afterwards." />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#1f3a2e" />
+<link rel="canonical" href="https://columbusheights.estate/request.html" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a href="index.html" class="brand">Columbus <span>·</span> Heights</a>
+  <div class="nav-links">
+    <a href="index.html#map" data-i18n="nav.map">Map</a>
+    <a href="index.html#how" data-i18n="nav.how">How it works</a>
+    <a href="market.html" data-i18n="nav.market">Market</a>
+    <a href="how-we-count.html" data-i18n="nav.method">Method</a>
+    <a href="request.html" data-i18n="nav.request">Request</a>
+  </div>
+  <div class="lang" aria-label="Language">
+    <button type="button" data-lang="en">EN</button><span>·</span>
+    <button type="button" data-lang="es">ES</button><span>·</span>
+    <button type="button" data-lang="ru">RU</button>
+  </div>
+</nav>
+
+<main class="page">
+  <div class="container">
+    <div class="prose" style="margin-bottom:3rem">
+      <div class="section-eyebrow" data-i18n="rq.eyebrow">Request</div>
+      <h1 data-i18n-html="rq.title">Tell us what <em>you need.</em></h1>
+      <p class="lead" data-i18n="rq.lead">One form for everything: the comparable sales for a lot, a call, a visit, a night in the guesthouse, a lot report, or listing a lot you own. We reply personally, usually within a few days, and agree the price and the way to pay then.</p>
+    </div>
+
+    <div class="form-grid">
+      <div>
+        <div class="prefill" id="prefill" aria-live="polite"></div>
+        <ul class="price-list">
+          <li><span data-i18n="rq.p1">Five comparable sales for a lot</span><span data-i18n="rq.p1v">free</span></li>
+          <li><span data-i18n="rq.p2">15-minute orientation call</span><span data-i18n="rq.p2v">$50</span></li>
+          <li><span data-i18n="rq.p3">Half-day visit</span><span data-i18n="rq.p3v">from $150</span></li>
+          <li><span data-i18n="rq.p4">Full day with a meal</span><span data-i18n="rq.p4v">from $250</span></li>
+          <li><span data-i18n="rq.p5">Night in the guesthouse</span><span data-i18n="rq.p5v">on request</span></li>
+          <li><span data-i18n="rq.p6">Lot report</span><span data-i18n="rq.p6v">from $200</span></li>
+          <li><span data-i18n="rq.p7">Listing your lot</span><span data-i18n="rq.p7v">free within the comparable range</span></li>
+        </ul>
+        <p class="form-note" data-i18n="rq.note1">Prices are guides; the $50 of the call counts toward any later step. Payment is agreed after we have talked — transfer, SINPE, cash. Nothing is charged on this site.</p>
+        <p class="form-note" data-i18n="rq.note2">We write only to the email you give and only about your request. Ask at any time and we delete what you sent.</p>
+        <p class="form-note"><a class="quiet-link" href="how-we-count.html" data-i18n="rq.link.count">How the estimates are made →</a></p>
+      </div>
+
+      <div class="tally-wrap">
+        <!-- Request form. Hidden fields "lot" and "service" are filled from this page's URL
+             (request.html?lot=47&service=report); they must exist as hidden fields in the Tally form. -->
+        <iframe data-tally-src="https://tally.so/embed/aQ2b8W?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="420" frameborder="0" marginheight="0" marginwidth="0" title="Request form"></iframe>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <span class="brand">Columbus · Heights</span>
+  <div data-i18n="foot.made">Made by the families who live at Columbus Heights.</div>
+  <p class="hoa" data-i18n="foot.hoa">Not affiliated with the Columbus Heights HOA</p>
+  <div class="foot-links">
+    <a href="index.html#map" data-i18n="nav.map">Map</a>
+    <a href="how-we-count.html" data-i18n="foot.count">How we count</a>
+    <a href="how-we-earn.html" data-i18n="foot.earn">How we earn</a>
+    <a href="market.html" data-i18n="nav.market">Market</a>
+    <a href="request.html" data-i18n="nav.request">Request</a>
+  </div>
+  <div class="fine"><span data-i18n="foot.legal">Registry check, not legal advice.</span> · © 2026 · columbusheights.estate</div>
+</footer>
+
+<script src="js/i18n.js"></script>
+<script src="js/site.js"></script>
+<script>
+  // Prefill: show what the visitor came for and pass lot/service to the Tally hidden fields.
+  (function () {
+    var SERVICES = { comps: 'svc.comps', call: 'svc.call', visit: 'svc.visit', stay: 'svc.stay', report: 'svc.report', listing: 'svc.listing', other: 'svc.other' };
+    var EN = { 'svc.comps': 'Five comparable sales', 'svc.call': '15-minute call', 'svc.visit': 'A visit', 'svc.stay': 'Guesthouse stay', 'svc.report': 'Lot report', 'svc.listing': 'Listing a lot', 'svc.other': 'Something else', 'rq.prefill.lot': 'Lot {n}' };
+    var q = new URLSearchParams(location.search);
+    var lot = (q.get('lot') || '').replace(/\D/g, '').slice(0, 3);
+    var service = q.get('service') || '';
+    if (!SERVICES[service]) service = '';
+    var frame = document.querySelector('iframe[data-tally-src]');
+    if (frame && (lot || service)) {
+      var src = frame.getAttribute('data-tally-src');
+      if (lot) src += '&lot=' + encodeURIComponent(lot);
+      if (service) src += '&service=' + encodeURIComponent(service);
+      frame.setAttribute('data-tally-src', src);
+    }
+    function render() {
+      var box = document.getElementById('prefill');
+      if (!box || (!lot && !service)) return;
+      var t = function (k, vars) {
+        var s = (window.I18N && window.I18N.dict && window.I18N.dict[k]) || EN[k] || k;
+        if (vars) Object.keys(vars).forEach(function (v) { s = s.split('{' + v + '}').join(vars[v]); });
+        return s;
+      };
+      var parts = [];
+      if (lot) parts.push(t('rq.prefill.lot', { n: lot }));
+      if (service) parts.push(t(SERVICES[service]));
+      box.textContent = parts.join(' · ');
+      box.classList.add('show');
+    }
+    document.addEventListener('DOMContentLoaded', render);
+    document.addEventListener('langchange', render);
+  })();
+</script>
+<script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Disagree with an estimate · Columbus Heights</title>
+<meta name="description" content="Tell us which lot and why the price range looks wrong. We read every message and correct what is wrong." />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#1f3a2e" />
+<link rel="canonical" href="https://columbusheights.estate/disagree.html" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a href="index.html" class="brand">Columbus <span>·</span> Heights</a>
+  <div class="nav-links">
+    <a href="index.html#map" data-i18n="nav.map">Map</a>
+    <a href="index.html#how" data-i18n="nav.how">How it works</a>
+    <a href="market.html" data-i18n="nav.market">Market</a>
+    <a href="how-we-count.html" data-i18n="nav.method">Method</a>
+    <a href="request.html" data-i18n="nav.request">Request</a>
+  </div>
+  <div class="lang" aria-label="Language">
+    <button type="button" data-lang="en">EN</button><span>·</span>
+    <button type="button" data-lang="es">ES</button><span>·</span>
+    <button type="button" data-lang="ru">RU</button>
+  </div>
+</nav>
+
+<main class="page">
+  <div class="container">
+    <div class="prose" style="margin-bottom:3rem">
+      <div class="section-eyebrow" data-i18n="dg.eyebrow">The estimate</div>
+      <h1 data-i18n-html="dg.title">Not convinced by <em>a range?</em></h1>
+      <p class="lead" data-i18n="dg.lead">Tell us the lot and what you think is wrong — a recent sale we missed, a feature that changes everything, a number that simply looks off. We read every message and correct what is wrong.</p>
+    </div>
+
+    <div class="form-grid">
+      <div>
+        <div class="prefill" id="prefill" aria-live="polite"></div>
+        <p class="form-note" data-i18n="dg.help">What helps us most: the lot number; what you think the lot is worth and why; a sale you know of — year and price, no names needed; and an email so we can answer.</p>
+        <p class="form-note" data-i18n="dg.note">The range is for a standard 5,000 m² lot, land only, from five comparable closed sales. The method page explains every step and what is left out.</p>
+        <p class="form-note"><a class="quiet-link" href="how-we-count.html" data-i18n="rq.link.count">How the estimates are made →</a></p>
+      </div>
+
+      <div class="tally-wrap">
+        <!-- "Disagree with the estimate" form. Hidden field "lot" is filled from this page's URL
+             (disagree.html?lot=47); it must exist as a hidden field in the Tally form. -->
+        <iframe data-tally-src="https://tally.so/embed/aQ2b8W?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="420" frameborder="0" marginheight="0" marginwidth="0" title="Disagree with the estimate"></iframe>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <span class="brand">Columbus · Heights</span>
+  <div data-i18n="foot.made">Made by the families who live at Columbus Heights.</div>
+  <p class="hoa" data-i18n="foot.hoa">Not affiliated with the Columbus Heights HOA</p>
+  <div class="foot-links">
+    <a href="index.html#map" data-i18n="nav.map">Map</a>
+    <a href="how-we-count.html" data-i18n="foot.count">How we count</a>
+    <a href="how-we-earn.html" data-i18n="foot.earn">How we earn</a>
+    <a href="market.html" data-i18n="nav.market">Market</a>
+    <a href="request.html" data-i18n="nav.request">Request</a>
+  </div>
+  <div class="fine"><span data-i18n="foot.legal">Registry check, not legal advice.</span> · © 2026 · columbusheights.estate</div>
+</footer>
+
+<script src="js/i18n.js"></script>
+<script src="js/site.js"></script>
+<script>
+  (function () {
+    var q = new URLSearchParams(location.search);
+    var lot = (q.get('lot') || '').replace(/\D/g, '').slice(0, 3);
+    var frame = document.querySelector('iframe[data-tally-src]');
+    if (frame && lot) frame.setAttribute('data-tally-src', frame.getAttribute('data-tally-src') + '&lot=' + encodeURIComponent(lot));
+    function render() {
+      var box = document.getElementById('prefill');
+      if (!box || !lot) return;
+      var s = (window.I18N && window.I18N.dict && window.I18N.dict['rq.prefill.lot']) || 'Lot {n}';
+      box.textContent = s.split('{n}').join(lot);
+      box.classList.add('show');
+    }
+    document.addEventListener('DOMContentLoaded', render);
+    document.addEventListener('langchange', render);
+  })();
+</script>
+<script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
+</body>
+</html>

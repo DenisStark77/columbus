@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>How we count · Columbus Heights</title>
+<meta name="description" content="How the registry status and the price range for every lot at Columbus Heights are produced: sources, the five comparable sales, indexing, the standard 5,000 m² lot, and what is left out." />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#1f3a2e" />
+<link rel="canonical" href="https://columbusheights.estate/how-we-count.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Columbus Heights" />
+<meta property="og:url" content="https://columbusheights.estate/how-we-count.html" />
+<meta property="og:title" content="How we count · Columbus Heights" />
+<meta property="og:description" content="Sources, the five comparable sales, indexing, the standard lot, and the limits of the method." />
+<meta property="og:image" content="https://columbusheights.estate/images/place.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a href="index.html" class="brand">Columbus <span>·</span> Heights</a>
+  <div class="nav-links">
+    <a href="index.html#map" data-i18n="nav.map">Map</a>
+    <a href="index.html#how" data-i18n="nav.how">How it works</a>
+    <a href="market.html" data-i18n="nav.market">Market</a>
+    <a href="how-we-count.html" data-i18n="nav.method">Method</a>
+    <a href="request.html" data-i18n="nav.request">Request</a>
+  </div>
+  <div class="lang" aria-label="Language">
+    <button type="button" data-lang="en">EN</button><span>·</span>
+    <button type="button" data-lang="es">ES</button><span>·</span>
+    <button type="button" data-lang="ru">RU</button>
+  </div>
+</nav>
+
+<main class="page">
+  <article class="prose">
+    <div class="section-eyebrow" data-i18n="hc.eyebrow">Method</div>
+    <h1 data-i18n-html="hc.title">How we <em>count.</em></h1>
+    <p class="lead" data-i18n="hc.lead">Every status and every price range on the map comes from public records and a method we can describe in full. This page is that description, limits included.</p>
+
+    <h2 data-i18n="hc.h1">1. Registry status</h2>
+    <p data-i18n="hc.p1a">For each parcel we read its extract in the Registro Nacional and record the date. The status on the map is a snapshot on that date, not the registry's state today. Entries can be added or cancelled any day; the date on every lot card tells you how old the reading is. A fresh reading is part of the paid report.</p>
+    <p data-i18n="hc.p1b">Four states, factual wording only:</p>
+    <div class="lot-status s-green"><span class="dot"></span><span data-i18n-html="hc.green"><strong>Green</strong> — no mortgages, claims or notes in the registry. This means only the absence of entries on that date. It says nothing about boundaries, about how many times the lot changed hands, or about the state of the company that may own it.</span></div>
+    <div class="lot-status s-yellow"><span class="dot"></span><span data-i18n-html="hc.yellow"><strong>Yellow</strong> — registry entries present: a mortgage, a tax lien, a claim or a note. The report says which, and what it means in practice.</span></div>
+    <div class="lot-status s-red"><span class="dot"></span><span data-i18n-html="hc.red"><strong>Red</strong> — transfers blocked by court order (inmovilización). This is the only case shown red.</span></div>
+    <div class="lot-status s-special"><span class="dot"></span><span data-i18n-html="hc.grey"><strong>Grey</strong> — not a separate parcel (lots 18–24 are registered as one parcel with lot 17; lots 63–64 were merged into another parcel in 2007), or no record found for that number.</span></div>
+    <p data-i18n="hc.p1c">Where the registered owner is a company, the card says so. Checking the company itself — whether it is active or dissolved, whether it owes tax — is part of the report, not of the map.</p>
+
+    <h2 data-i18n="hc.h2">2. Price range</h2>
+    <p data-i18n="hc.p2a">We do not model a price from terrain or trees. On the closed sales we have, neither relief, nor cover, nor a river, nor unpaid dues explained the price well enough to trust. Instead, for every lot we show the five most similar closed sales and the spread between them.</p>
+    <h3 data-i18n="hc.h2a">Which sales count</h3>
+    <ul>
+      <li data-i18n="hc.l2a">Purchases registered as compraventa for lots in Columbus Heights, declared in US dollars, one per lot — the current owner's purchase.</li>
+      <li data-i18n="hc.l2b">Transfers declared in colones at or near cadastral value — about half of all transfers — are left out as uninformative.</li>
+      <li data-i18n="hc.l2c">Prices are the "estimación o precio" declared in the deed. They can be lower than what was actually paid.</li>
+    </ul>
+    <h3 data-i18n="hc.h2b">How the five are chosen</h3>
+    <p data-i18n="hc.p2b">Step one: sales of lots with the same relief (flat, slope, hilltop, low ground between hills) and the same cover (open field, forest, mixed). If that gives fewer than five, step two: the same relief only. The five sales we send by email say which step was used.</p>
+    <h3 data-i18n="hc.h2c">Bringing prices to one level</h3>
+    <p data-i18n="hc.p2c">Prices from 2021 to 2026 are indexed to the median of the 2024–2026 sales taken together — 2026 alone has three sales, too few on its own. This assumes the rise in the median reflects the market rather than a change in which lots happened to sell.</p>
+    <h3 data-i18n="hc.h2d">Bringing prices to one lot size</h3>
+    <p data-i18n="hc.p2d">Each sale is converted to a standard 5,000 m² lot:</p>
+    <div class="formula" data-i18n="hc.formula">indexed price × 5,000 ÷ max(area of the sold lot, 5,000)</div>
+    <p data-i18n-html="hc.p2e">Lots smaller than 5,000 m² are not scaled. <strong>The area of your own lot is not applied:</strong> the range is always for a standard lot. Lot 17, a single 5.7 ha parcel covering lots 17–24, is outside the method and shows no range.</p>
+    <div class="callout">
+      <p data-i18n-html="hc.callout"><strong>Not in the calculation:</strong> the area of your lot, electricity, a river, trees, views, buildings, road frontage, unpaid HOA dues, the state of the owning company. The range is for land only. For a lot with a house, it is an estimate of the land, not of the house.</p>
+    </div>
+    <h3 data-i18n="hc.h2e">What the card shows</h3>
+    <p data-i18n="hc.p2f">The minimum, median and maximum of the five converted prices, and the date of the calculation. For the five sales themselves — relief, cover, river, distance from your lot, year, declared price and converted price — ask through the form; we send them by email, without lot numbers.</p>
+
+    <h2 data-i18n="hc.h3">3. Relief and cover</h2>
+    <p data-i18n="hc.p3">Relief comes from the SRTM 30 m elevation model; cover from a satellite image of unknown date, classified automatically. Both are estimates. Fourteen lots have no cover value because the image could not be read there. Walk the lot before you believe either.</p>
+
+    <h2 data-i18n="hc.h4">4. Samples are small</h2>
+    <p data-i18n="hc.p4">Forty-four dollar purchases in six years, for 212 parcels. Three sales in 2025 and three in 2026 — the period without grid electricity. The market page shows the number of sales next to every figure, and every median should be read with that number in mind.</p>
+
+    <h2 data-i18n="hc.h5">5. Not legal advice</h2>
+    <p data-i18n="hc.p5">A registry check summarises public records in plain language. It is not a legal opinion and does not replace a Costa Rican lawyer, who should run their own study before any purchase.</p>
+
+    <div class="callout">
+      <p data-i18n-html="hc.disagree"><strong>Disagree with a range?</strong> Tell us which lot and why. We read every message and correct what is wrong.</p>
+      <p><a class="quiet-link" href="disagree.html" data-i18n="hc.disagree.link">Write to us about an estimate →</a></p>
+    </div>
+  </article>
+</main>
+
+<footer>
+  <span class="brand">Columbus · Heights</span>
+  <div data-i18n="foot.made">Made by the families who live at Columbus Heights.</div>
+  <p class="hoa" data-i18n="foot.hoa">Not affiliated with the Columbus Heights HOA</p>
+  <div class="foot-links">
+    <a href="index.html#map" data-i18n="nav.map">Map</a>
+    <a href="how-we-count.html" data-i18n="foot.count">How we count</a>
+    <a href="how-we-earn.html" data-i18n="foot.earn">How we earn</a>
+    <a href="market.html" data-i18n="nav.market">Market</a>
+    <a href="request.html" data-i18n="nav.request">Request</a>
+  </div>
+  <div class="fine"><span data-i18n="foot.legal">Registry check, not legal advice.</span> · © 2026 · columbusheights.estate</div>
+</footer>
+
+<script src="js/i18n.js"></script>
+<script src="js/site.js"></script>
+</body>
+</html>

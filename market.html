@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Market data · Columbus Heights</title>
+<meta name="description" content="Sales per year, declared purchase prices in US dollars, lot sizes, who owns the lots and what the registry records — for the 212 parcels of Columbus Heights, with the number of sales next to every figure." />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#1f3a2e" />
+<link rel="canonical" href="https://columbusheights.estate/market.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Columbus Heights" />
+<meta property="og:url" content="https://columbusheights.estate/market.html" />
+<meta property="og:title" content="Market data · Columbus Heights" />
+<meta property="og:description" content="Sales per year, declared prices, lot sizes, ownership and registry entries for the 212 parcels, with n next to every figure." />
+<meta property="og:image" content="https://columbusheights.estate/images/place.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a href="index.html" class="brand">Columbus <span>·</span> Heights</a>
+  <div class="nav-links">
+    <a href="index.html#map" data-i18n="nav.map">Map</a>
+    <a href="index.html#how" data-i18n="nav.how">How it works</a>
+    <a href="market.html" data-i18n="nav.market">Market</a>
+    <a href="how-we-count.html" data-i18n="nav.method">Method</a>
+    <a href="request.html" data-i18n="nav.request">Request</a>
+  </div>
+  <div class="lang" aria-label="Language">
+    <button type="button" data-lang="en">EN</button><span>·</span>
+    <button type="button" data-lang="es">ES</button><span>·</span>
+    <button type="button" data-lang="ru">RU</button>
+  </div>
+</nav>
+
+<main class="page">
+  <article class="prose">
+    <div class="section-eyebrow" data-i18n="mk.eyebrow">Market data</div>
+    <h1 data-i18n-html="mk.title">What the registry says <em>about the market.</em></h1>
+    <p class="lead" data-i18n="mk.lead">Everything below comes from the public extracts of the 212 parcels of Columbus Heights, read on the date shown. The samples are small; the number of sales sits next to every figure for a reason.</p>
+    <p class="small"><span data-i18n="mk.asof">Registry snapshot:</span> <span id="v-asof">2026-11-24</span></p>
+
+    <h2 data-i18n="mk.h1">The parcels</h2>
+    <div class="stat-row">
+      <div class="stat"><b id="v-fincas">212</b><span data-i18n="mk.s1">parcels in the registry (lots numbered up to 225)</span></div>
+      <div class="stat"><b><span id="v-area">115.9</span> ha</b><span data-i18n="mk.s2">total area</span></div>
+      <div class="stat"><b><span id="v-median-lot">5,076</span> m²</b><span data-i18n="mk.s3">median lot; most lots are 5,000–6,000 m²</span></div>
+    </div>
+    <p data-i18n-html="mk.p1"><span id="v-std-lots">191</span> of the 212 parcels measure between 5,000 and 6,000 m²; nine are larger than 7,000 m² and four smaller than 5,000 m². Lots 18–24 are not separate parcels — they are registered as one 5.7 ha parcel together with lot 17. Lots 63 and 64 were merged into another parcel in 2007.</p>
+
+    <h2 data-i18n="mk.h2">Purchases per year</h2>
+    <p data-i18n="mk.p2">Purchases are compraventa acts in the history of the 212 parcels, excluding the original 2006 subdivision sale. The 2019–2021 peak includes many transfers declared at cadastral value; the drop from late 2024 is the period without grid electricity.</p>
+    <div class="chart" id="chart-sales"></div>
+    <p class="chart-caption" data-i18n="mk.c2">Purchases registered per year. Shaded periods are explained in the text above; hover a bar for the exact count and the number of other transfers (inheritance, donation, company changes).</p>
+    <table>
+      <thead><tr><th data-i18n="mk.t.year">Year</th><th class="num" data-i18n="mk.t.purchases">Purchases</th><th class="num" data-i18n="mk.t.other">Other transfers</th></tr></thead>
+      <tbody id="table-sales"></tbody>
+    </table>
+
+    <h2 data-i18n="mk.h3">Declared purchase prices in US dollars</h2>
+    <p data-i18n="mk.p3">Only purchases declared in US dollars by the current owner count here, one per lot. About half of all purchases are declared in colones at or near cadastral value — around ₡5 to 5.4 million — and are left out as uninformative. Declared prices can be lower than what was actually paid.</p>
+    <div class="stat-row">
+      <div class="stat"><b id="v-n">44</b><span data-i18n="mk.s4">dollar purchases, 2021–2026</span></div>
+      <div class="stat"><b id="v-median">$42,750</b><span data-i18n="mk.s5">median declared price, 2021–2026</span></div>
+      <div class="stat"><b id="v-iqr">$35,000 – $63,750</b><span data-i18n="mk.s6">middle half of the prices</span></div>
+    </div>
+    <div class="chart" id="chart-prices"></div>
+    <p class="chart-caption" data-i18n="mk.c3">Median declared price per year (dot) and the full spread from lowest to highest sale (line). The number of purchases is under each year; 2025 and 2026 rest on three sales each.</p>
+    <table>
+      <thead><tr><th data-i18n="mk.t.year">Year</th><th class="num">n</th><th class="num" data-i18n="mk.t.median">Median</th><th class="num" data-i18n="mk.t.min">Lowest</th><th class="num" data-i18n="mk.t.max">Highest</th></tr></thead>
+      <tbody id="table-prices"></tbody>
+    </table>
+    <p class="small" data-i18n="mk.p3b">Prices on the lot cards are not these medians: they are five comparable sales per lot, indexed to the 2024–2026 level and converted to a standard 5,000 m² lot. The method page explains the difference.</p>
+
+    <h2 data-i18n="mk.h4">Who owns the lots</h2>
+    <p data-i18n-html="mk.p4">Registered owners by type. <span id="v-original">53</span> parcels are still held by the company that subdivided the land in 2006; some of those have changed hands through shares rather than through the land registry, which is one reason a green status says nothing about ownership history.</p>
+    <div class="chart" id="chart-ownership"></div>
+    <p class="chart-caption" data-i18n="mk.c4">Number of parcels by type of registered owner. "Mixed" means several owners of different types on one parcel.</p>
+
+    <h2 data-i18n="mk.h5">What the registry records</h2>
+    <p data-i18n="mk.p5">Counts of parcels by kind of entry, on the snapshot date. A parcel can appear in more than one row. Which parcels these are is on the map, lot by lot, and in the paid report, entry by entry.</p>
+    <div class="chart" id="chart-status"></div>
+    <p class="chart-caption" data-i18n="mk.c5">Parcels with no entries at all, with a mortgage or tax lien, in foreclosure proceedings, with a preventive note, or with transfers blocked by a court order.</p>
+
+    <h2 data-i18n="mk.h6">How to read this page</h2>
+    <ul>
+      <li data-i18n="mk.l6a">Prices are the "estimación o precio" declared in the deed; they can understate the real price.</li>
+      <li data-i18n="mk.l6b">Dollar statistics use only current-owner purchases declared in US dollars, one per lot; earlier resales of the same lot are not in the data.</li>
+      <li data-i18n="mk.l6c">Purchases declared in colones at or near cadastral value are excluded from price statistics.</li>
+      <li data-i18n="mk.l6d">Since November 2024 the community has had no grid electricity. An agreement with ICE is paid and works are under way as of November 2026; the connection is not there yet.</li>
+      <li data-i18n="mk.l6e">A registry check is not legal advice. Any purchase needs a Costa Rican lawyer.</li>
+    </ul>
+    <p><a class="quiet-link" href="how-we-count.html" data-i18n="he.link.count">How we count →</a></p>
+  </article>
+</main>
+
+<footer>
+  <span class="brand">Columbus · Heights</span>
+  <div data-i18n="foot.made">Made by the families who live at Columbus Heights.</div>
+  <p class="hoa" data-i18n="foot.hoa">Not affiliated with the Columbus Heights HOA</p>
+  <div class="foot-links">
+    <a href="index.html#map" data-i18n="nav.map">Map</a>
+    <a href="how-we-count.html" data-i18n="foot.count">How we count</a>
+    <a href="how-we-earn.html" data-i18n="foot.earn">How we earn</a>
+    <a href="market.html" data-i18n="nav.market">Market</a>
+    <a href="request.html" data-i18n="nav.request">Request</a>
+  </div>
+  <div class="fine"><span data-i18n="foot.legal">Registry check, not legal advice.</span> · © 2026 · columbusheights.estate</div>
+</footer>
+
+<script src="js/i18n.js"></script>
+<script src="js/site.js"></script>
+<script src="js/market.js"></script>
+</body>
+</html>
